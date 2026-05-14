@@ -7,96 +7,78 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400&amp;display=swap');
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .heading-serif {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 700;
-        }
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400&amp;display=swap');
+   
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+   
+    .heading-serif {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700;
+    }
 
-        .silk-bg {
-            background-image: 
-                linear-gradient(rgba(250, 245, 238, 0.92), rgba(250, 245, 238, 0.92)),
-                url('https://picsum.photos/id/1074/2000/3000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    .hero-bg {
+        background-image: url('FON.png');
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px) brightness(0.95);
+    }
 
-        .monogram {
-            font-size: 11rem;
-            line-height: 0.75;
-            font-family: 'Playfair Display', Georgia, serif;
-            letter-spacing: -0.12em;
-            color: #2c241d;
+    /* === Для телефонов === */
+    @media (max-width: 768px) {
+        .hero-bg {
+            background-image: url('FON-mob.png');
+            background-position: center 38%;
+            filter: blur(7px) brightness(0.92);
         }
+    }
 
-        .section-title {
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            font-weight: 500;
-            color: #8a7560;
-        }
-
-        .elegant-text {
-            font-size: 1.15rem;
-            line-height: 1.75;
-            color: #3f3228;
-        }
-
-        .scroll-hint {
-            animation: gentle-bob 2s ease-in-out infinite;
-        }
-
-        .content-section {
-            scroll-margin-top: 80px;
-        }
-    </style>
+    .section-title {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        font-weight: 500;
+        color: #8a7560;
+    }
+    
+    .elegant-text {
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: #3f3228;
+    }
+</style>
 </head>
 <body class="bg-[#faf5ee] text-[#2c241d]">
 
-    <!-- HERO С ФОТО ЧЕРЕЗ МУТНОЕ СТЕКЛО -->
 <header class="hero min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
     
-    <!-- Фото с эффектом мутного стекла -->
-    <div class="absolute inset-0 z-0" 
-         style="background-image: url('FON.png'); 
-                background-size: cover; 
-                background-position: center;
-                filter: blur(7px) brightness(0.92) saturate(1.1);">
-    </div>
+    <!-- Фон (меняется автоматически) -->
+    <div class="absolute inset-0 z-0 hero-bg"></div>
     
-    <!-- Белый оверлей (эффект матового стекла) -->
-    <div class="absolute inset-0 z-10 bg-white/55"></div>
+    <!-- Оверлей -->
+    <div class="absolute inset-0 bg-white/60 z-10"></div>
 
     <div class="relative z-20 text-center px-6">
-        
         <!-- Дата -->
-        <div class="mb-12">
+        <div class="mb-10">
             <span class="text-sm tracking-[4px] text-[#6b5a4a]">12.09.2026</span>
         </div>
 
-        <!-- Логотип DD -->
-        <div class="mb-10 flex justify-center">
-            <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil & Diana" 
-                 class="w-[240px] md:w-[290px] h-auto">
+        <!-- Логотип -->
+        <div class="mb-8 flex justify-center">
+            <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil & Diana" class="w-[220px] md:w-[280px] h-auto">
         </div>
 
         <!-- Имена -->
-        <div class="mb-24">
-            <div class="text-[26px] tracking-[7px] font-medium text-[#2c241d]">DANIIL &amp; DIANA</div>
+        <div class="mb-20">
+            <div class="text-3xl tracking-[6px] font-medium text-[#2c241d]">DANIIL &amp; DIANA</div>
         </div>
 
-        <!-- Призыв к скроллу -->
+        <!-- Скролл -->
         <div class="text-[#6b5a4a]">
             <div class="text-xs tracking-[3px] mb-2">ЛИСТАЙТЕ ВНИЗ</div>
             <i class="fas fa-chevron-down text-xl animate-bounce"></i>
         </div>
-        
     </div>
 </header>
 
@@ -287,6 +269,21 @@
             console.log('%c[Свадьба] Элегантный сайт-приглашение готов', 'color:#c9a96e');
         }
         
+.hero-bg {
+    background-image: url('FON.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.95);
+}
+
+/* === Для телефонов === */
+@media (max-width: 768px) {
+    .hero-bg {
+        background-image: url('FON-mob.png');
+        background-position: center 38%;
+        filter: blur(7px) brightness(0.92);
+    }
+}
         window.onload = init;
     </script>
 </body>
