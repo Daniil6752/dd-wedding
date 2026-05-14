@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Даниил &amp; Диана • 12.09.2026</title>
+    <title>Владимир &amp; Екатерина • 20.12.2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -59,36 +59,46 @@
 </head>
 <body class="bg-[#faf5ee] text-[#2c241d]">
 
-    <!-- HERO — ТОЧНО КАК НА ВАШЕМ СКРИНШОТЕ -->
-    <div class="silk-bg min-h-screen flex flex-col items-center justify-center relative px-6">
+    <!-- HERO С ФОТО ЧЕРЕЗ МУТНОЕ СТЕКЛО -->
+<header class="hero min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+    
+    <!-- Фото с эффектом мутного стекла -->
+    <div class="absolute inset-0 z-0" 
+         style="background-image: url('FON.png'); 
+                background-size: cover; 
+                background-position: center;
+                filter: blur(7px) brightness(0.92) saturate(1.1);">
+    </div>
+    
+    <!-- Белый оверлей (эффект матового стекла) -->
+    <div class="absolute inset-0 z-10 bg-white/55"></div>
+
+    <div class="relative z-20 text-center px-6">
         
         <!-- Дата -->
-        <div class="text-center mb-12">
-            <div class="text-sm tracking-[4px] text-[#8a7560] font-medium">12.09.2026</div>
+        <div class="mb-12">
+            <span class="text-sm tracking-[4px] text-[#6b5a4a]">12.09.2026</span>
         </div>
 
-        <!-- Монограмма VE -->
-        <div class="text-center mb-8">
-            <div class="flex justify-center items-center">
-                <span class="monogram">D</span>
-                <span class="monogram -ml-10">D</span>
-            </div>
+        <!-- Логотип DD -->
+        <div class="mb-10 flex justify-center">
+            <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil & Diana" 
+                 class="w-[240px] md:w-[290px] h-auto">
         </div>
 
         <!-- Имена -->
-        <div class="text-center mb-16">
-            <div class="text-2xl tracking-[4px] font-medium">DANIIL &amp; DIANA</div>
+        <div class="mb-24">
+            <div class="text-[26px] tracking-[7px] font-medium text-[#2c241d]">DANIIL &amp; DIANA</div>
         </div>
 
         <!-- Призыв к скроллу -->
-        <div class="absolute bottom-16 text-center">
-            <div class="text-xs tracking-[2px] text-[#8a7560] mb-3">ЛИСТАЙТЕ ВНИЗ</div>
-            <div class="scroll-hint">
-                <i class="fas fa-chevron-down text-xl text-[#8a7560]"></i>
-            </div>
+        <div class="text-[#6b5a4a]">
+            <div class="text-xs tracking-[3px] mb-2">ЛИСТАЙТЕ ВНИЗ</div>
+            <i class="fas fa-chevron-down text-xl animate-bounce"></i>
         </div>
-
+        
     </div>
+</header>
 
     <!-- ОСНОВНОЙ КОНТЕНТ (появляется при скролле) -->
     <div class="max-w-2xl mx-auto px-6 py-20">
@@ -100,7 +110,7 @@
             <div class="elegant-text max-w-md mx-auto">
                 Дорогие наши близкие и друзья!<br><br>
                 Мы, Даниил и Диана, с огромной радостью и нежностью приглашаем вас стать частью самого важного дня в нашей жизни.<br><br>
-                12 сентября 2026 года мы хотим сказать друг другу «да» в кругу самых дорогих нам людей. Ваше присутствие сделает этот день по-настоящему волшебным и незабываемым.
+                20 декабря 2026 года мы хотим сказать друг другу «да» в кругу самых дорогих нам людей. Ваше присутствие сделает этот день по-настоящему волшебным и незабываемым.
             </div>
         </div>
 
@@ -115,7 +125,7 @@
                         <i class="fas fa-calendar-day text-[#c9a96e] text-2xl mt-1"></i>
                     </div>
                     <div>
-                        <div class="font-semibold text-lg">12 сентября 2026</div>
+                        <div class="font-semibold text-lg">20 декабря 2026</div>
                         <div class="text-[#8a7560]">суббота</div>
                     </div>
                 </div>
@@ -137,8 +147,8 @@
                         <i class="fas fa-map-marker-alt text-[#c9a96e] text-2xl mt-1"></i>
                     </div>
                     <div>
-                        <div class="font-semibold text-lg">Усадьба «Голубая устрица»</div>
-                        <div class="text-[#8a7560]">Московская область,<br> район дом 6969</div>
+                        <div class="font-semibold text-lg">Усадьба «Белые ночи»</div>
+                        <div class="text-[#8a7560]">Московская область,<br>Одинцовский район, д. Барвиха, 12</div>
                     </div>
                 </div>
             </div>
@@ -156,7 +166,7 @@
             
             <div class="mt-10 text-[#8a7560]">
                 С любовью,<br>
-                <span class="font-semibold text-[#2c241d]">Даниил и Диана</span>
+                <span class="font-semibold text-[#2c241d]">Владимир и Екатерина</span>
             </div>
         </div>
 
@@ -167,7 +177,7 @@
         <div class="max-w-md mx-auto px-6">
             <div class="text-center mb-10">
                 <div class="section-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
-                <div class="text-sm text-[#8a7560] mt-2">Просьба ответить до 1 июля</div>
+                <div class="text-sm text-[#8a7560] mt-2">Просьба ответить до 1 декабря</div>
             </div>
             
             <form id="rsvp-form" class="space-y-5">
@@ -199,7 +209,7 @@
 
     <!-- Footer -->
     <footer class="bg-[#2c241d] text-[#d9c9b8] py-12 text-center text-sm">
-        <div>Даниил &amp; Диана • 12.09.2026</div>
+        <div>Владимир &amp; Екатерина • 20.12.2026</div>
         <div class="mt-2 text-xs opacity-60">С нетерпением ждём встречи</div>
     </footer>
 
