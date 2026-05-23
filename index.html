@@ -3,157 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Даниил &amp; Диана • 12.09.2026</title>
+    <title>Даниил &amp; Диана • 25.08.2026</title>
     <link rel="icon" href="channels4_profile-no-bg-preview (carve.photos).png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400&amp;display=swap');
-   
-    body {
-        font-family: 'Inter', system-ui, sans-serif;
-    }
-   
-    .heading-serif {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-weight: 700;
-    }
+		<style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400&amp;display=swap');
 
-    .hero-bg {
-        background-image: url('FON.png');
-        background-size: cover;
-        background-position: center;
-        filter: blur(5px) brightness(0.95);
-    }
+            body {
+                font-family: 'Inter', system-ui, sans-serif;
+            }
 
-    /* === Для телефонов === */
-    @media (max-width: 768px) {
-        .hero-bg {
-            background-image: url('FON-mob.png');
-            background-position: center 38%;
-            filter: blur(7px) brightness(0.92);
-        }
-    }
+            .hero-bg {
+                position: fixed;           /* Главное изменение */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-image: url('FON.png');
+                background-size: cover;
+                background-position: center;
+                filter: blur(5px) brightness(0.95);
+                z-index: -1;
+            }
 
-    .section-title {
-        font-size: 1.1rem;
-        letter-spacing: 3px;
-        font-weight: 500;
-        color: #8a7560;
-    }
-    
-    .elegant-text {
-        font-size: 1.15rem;
-        line-height: 1.75;
-        color: #3f3228;
-    }
-</style>
+            @media (max-width: 768px) {
+                .hero-bg {
+                    background-image: url('FON-mob.png');
+                    background-position: center 38%;
+                    filter: blur(7px) brightness(0.92);
+                    height: 100dvh;           /* важно для мобильных */
+                }
+            }
+
+            .hero {
+                position: relative;
+                min-height: 100vh;
+                z-index: 1;
+            }
+
+            /* Остальной CSS (оставляем как было) */
+            .heading-serif {
+                font-family: 'Playfair Display', Georgia, serif;
+                font-weight: 700;
+            }
+
+            .section-title {
+                font-size: 1.05rem;
+                letter-spacing: 4px;
+                font-weight: 500;
+                color: #5b7a9e;
+            }
+
+            .elegant-text {
+                font-size: 1.15rem;
+                line-height: 1.8;
+                color: #2c3a4d;
+            }
+
+            .navy { color: #1f2a3d; }
+            .cream-bg { background-color: #f8f5ef; }
+            .blue-accent { color: #5b7a9e; }
+
+            /* Локация */
+            .location-hero {
+                position: relative;
+                min-height: 100dvh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .location-bg {
+                position: absolute;
+                inset: 0;
+                background-image: url('loc_pc.jpg');
+                background-size: cover;
+                background-position: center 35%;
+                z-index: 1;
+            }
+
+            @media (max-width: 768px) {
+                .location-bg {
+                    background-position: center 40%;
+                }
+            }
+
+            .location-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+                z-index: 2;
+            }
+        </style>
 </head>
-<body class="bg-[#faf5ee] text-[#2c241d]">
+<body class="bg-[#f8f5ef] text-[#1f2a3d]">
     
-
-<header class="hero min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-    
-    <!-- Фон (меняется автоматически) -->
-    <div class="absolute inset-0 z-0 hero-bg"></div>
-    
-    <!-- Оверлей -->
-    <div class="absolute inset-0 bg-white/60 z-10"></div>
-
-    <div class="relative z-20 text-center px-6">
-        <!-- Дата -->
-        <div class="mb-10">
-            <span class="text-sm tracking-[4px] text-[#6b5a4a]">12.09.2026</span>
+    <!-- ГЕРОЙ (оставил без изменений) -->
+    <header class="hero min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 hero-bg"></div>
+        <div class="absolute inset-0 bg-white/60 z-10"></div>
+        
+        <div class="relative z-20 text-center px-6">
+            <div class="mb-10">
+                <span class="text-sm tracking-[4px] text-[#6b5a4a]">25.08.2026</span>
+            </div>
+            
+            <div class="mb-8 flex justify-center">
+                <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil &amp; Diana" class="w-[220px] md:w-[280px] h-auto">
+            </div>
+            
+            <div class="mb-20">
+                <div class="text-3xl tracking-[6px] font-medium text-[#1f2a3d]">DANIIL &amp; DIANA</div>
+            </div>
+            
+            <div class="text-[#6b5a4a]">
+                <div class="text-xs tracking-[3px] mb-2">ЛИСТАЙТЕ ВНИЗ</div>
+                <i class="fas fa-chevron-down text-xl animate-bounce"></i>
+            </div>
         </div>
+    </header>
 
-        <!-- Логотип -->
-        <div class="mb-8 flex justify-center">
-            <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil & Diana" class="w-[220px] md:w-[280px] h-auto">
-        </div>
-
-        <!-- Имена -->
-        <div class="mb-20">
-            <div class="text-3xl tracking-[6px] font-medium text-[#2c241d]">DANIIL &amp; DIANA</div>
-        </div>
-
-        <!-- Скролл -->
-        <div class="text-[#6b5a4a]">
-            <div class="text-xs tracking-[3px] mb-2">ЛИСТАЙТЕ ВНИЗ</div>
-            <i class="fas fa-chevron-down text-xl animate-bounce"></i>
-        </div>
-    </div>
-</header>
-
-    <!-- ОСНОВНОЙ КОНТЕНТ (появляется при скролле) -->
-    <div class="max-w-2xl mx-auto px-6 py-20">
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="max-w-2xl mx-auto px-6 py-16">
         
         <!-- Приветствие -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-20">
             <div class="section-title mb-6">С ЛЮБОВЬЮ И ТРЕПЕТОМ</div>
             
             <div class="elegant-text max-w-md mx-auto">
                 Дорогие наши близкие и друзья!<br><br>
-                Мы, Даниил и Диана, с огромной радостью и нежностью приглашаем вас стать частью самого важного дня в нашей жизни.<br><br>
-                12 сентября 2026 года мы хотим сказать друг другу «да» в кругу самых дорогих и близких нам людей. Ваше присутствие сделает этот день по-настоящему волшебным и незабываемым.
+                С большой радостью мы, Даниил и Диана, приглашаем вас разделить с нами один из самых важных дней в нашей жизни.<br><br>
+                25 августа 2026 года мы хотим сказать друг другу «да» и связать свои судьбы в кругу самых дорогих нам людей. Ваше присутствие сделает этот день по-настоящему значимым и наполненным светом.
             </div>
         </div>
 
-        <!-- Детали -->
-        <div class="border border-[#d9c9b8] rounded-3xl p-10 md:p-14 text-center mb-16">
-            <div class="section-title mb-8">ДЕТАЛИ ПРАЗДНИКА</div>
+        <!-- ТАЙМИНГ -->
+        <div class="mb-16">
+            <div class="text-center mb-10">
+                <div class="section-title">ТАЙМИНГ</div>
+                <div class="text-sm text-[#8a7560] mt-1">Расписание торжества</div>
+            </div>
             
-            <div class="space-y-8 text-left max-w-xs mx-auto">
-                <!-- Дата -->
-                <div class="flex items-start gap-x-4">
-                    <div class="w-9 flex-shrink-0">
-                        <i class="fas fa-calendar-day text-[#c9a96e] text-2xl mt-1"></i>
+            <div class="max-w-md mx-auto space-y-8 text-[#2c3a4d]">
+                <div class="flex gap-6">
+                    <div class="w-20 flex-shrink-0 text-right">
+                        <div class="font-semibold text-xl">14:00</div>
                     </div>
                     <div>
-                        <div class="font-semibold text-lg">12 сентября 2026</div>
-                        <div class="text-[#8a7560]">суббота</div>
+                        <div class="font-medium">Сбор гостей и welcome drink</div>
+                        <div class="text-sm text-[#6b5a4a]">На территории «Дом у леса»</div>
                     </div>
                 </div>
                 
-                <!-- Время -->
-                <div class="flex items-start gap-x-4">
-                    <div class="w-9 flex-shrink-0">
-                        <i class="fas fa-clock text-[#c9a96e] text-2xl mt-1"></i>
+                <div class="flex gap-6">
+                    <div class="w-20 flex-shrink-0 text-right">
+                        <div class="font-semibold text-xl">15:00</div>
                     </div>
                     <div>
-                        <div class="font-semibold text-lg">15:00</div>
-                        <div class="text-[#8a7560]">сбор гостей с 14:30</div>
+                        <div class="font-medium">Церемония бракосочетания</div>
+                        <div class="text-sm text-[#6b5a4a]">В саду у дома</div>
                     </div>
                 </div>
                 
-                <!-- Место -->
-                <div class="flex items-start gap-x-4">
-                    <div class="w-9 flex-shrink-0">
-                        <i class="fas fa-map-marker-alt text-[#c9a96e] text-2xl mt-1"></i>
+                <div class="flex gap-6">
+                    <div class="w-20 flex-shrink-0 text-right">
+                        <div class="font-semibold text-xl">16:30</div>
                     </div>
                     <div>
-                        <div class="font-semibold text-lg">Усадьба «Белые ночи»</div>
-                        <div class="text-[#8a7560]">Московская область,<br>Одинцовский район, д. Барвиха, 12</div>
+                        <div class="font-medium">Фуршет и фотосессия</div>
+                        <div class="text-sm text-[#6b5a4a]">В тени леса и у пруда</div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-6">
+                    <div class="w-20 flex-shrink-0 text-right">
+                        <div class="font-semibold text-xl">19:00</div>
+                    </div>
+                    <div>
+                        <div class="font-medium">Праздничный ужин и танцы</div>
+                        <div class="text-sm text-[#6b5a4a]">В главном зале дома</div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- ЛОКАЦИЯ — во весь экран -->
+		<section class="location-hero">
+			<!-- Фон (меняется автоматически) -->
+			<div class="location-bg"></div>
+			
+			<!-- Оверлей -->
+			<div class="location-overlay"></div>
+			
+			<!-- Контент -->
+			<div class="relative z-10 text-center px-6 text-white max-w-md">
+				<div class="mb-6">
+					<div class="text-sm tracking-[3px] mb-3 opacity-80">МЕСТО ПРОВЕДЕНИЯ</div>
+					<h2 class="text-4xl md:text-5xl font-light tracking-tight mb-4">«Дом у леса»</h2>
+				</div>
+				
+				<p class="text-lg md:text-xl opacity-90 mb-10">
+					Адрес и точное место проведения<br>
+					будет в прикреплённом файле
+				</p>
+				
+				<button onclick="window.open('https://yandex.ru/maps/-/CHfXqXvX', '_blank')"
+						class="px-10 py-4 bg-white text-[#1f2a3d] font-medium rounded-2xl text-lg hover:bg-[#f8f5ef] transition-all active:scale-[0.985]">
+					Посмотреть на карте
+				</button>
+				
+				<div class="mt-8 text-xs opacity-70">Московская область • Одинцовский район</div>
+			</div>
+		</section>
+
+        <!-- ДРЕСС КОД -->
+        <div class="mb-16">
+            <div class="text-center mb-8">
+                <div class="section-title">ДРЕСС КОД</div>
+            </div>
             
-            <div class="mt-10 pt-8 border-t border-[#d9c9b8]">
-                <div class="text-sm text-[#8a7560]">Дресс-код: белый, кремовый и пастельные оттенки</div>
+            <div class="max-w-md mx-auto text-center">
+                <div class="text-[#2c3a4d] leading-relaxed mb-8">
+                    Мы знаем, вы прекрасно выглядите в любом наряде.<br>
+                    Но нам будет очень приятно, если вы поддержите<br>
+                    цветовую гамму нашего вечера.
+                </div>
+                
+                <!-- Цвета -->
+                <div class="flex justify-center gap-4 mb-8">
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #4a6fa5;"></div>
+                        <div class="text-xs mt-2 text-[#6b5a4a]">Синий</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #ffffff;"></div>
+                        <div class="text-xs mt-2 text-[#6b5a4a]">Белый</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #f5f0e6;"></div>
+                        <div class="text-xs mt-2 text-[#6b5a4a]">Кремовый</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #a8c3b8;"></div>
+                        <div class="text-xs mt-2 text-[#6b5a4a]">Мятный</div>
+                    </div>
+                </div>
+                
+                <div class="text-sm text-[#6b5a4a]">
+                    Для женщин — платья и костюмы в указанных оттенках.<br>
+                    Для мужчин — светлые костюмы или рубашки с брюками.
+                </div>
             </div>
         </div>
 
         <!-- Короткое пожелание -->
-        <div class="text-center max-w-md mx-auto">
+        <div class="text-center max-w-md mx-auto mb-16">
             <div class="elegant-text text-lg">
-                Мы очень ждём вас и заранее благодарим за то, что разделите с нами этот светлый и счастливый день.
+                Мы очень ждём вас и заранее благодарим<br>
+                за то, что разделите с нами этот светлый день.
             </div>
             
-            <div class="mt-10 text-[#8a7560]">
+            <div class="mt-10 text-[#6b5a4a]">
                 С любовью,<br>
-                <span class="font-semibold text-[#2c241d]">Даниил и Диана</span>
+                <span class="font-semibold text-[#1f2a3d]">Даниил и Диана</span>
             </div>
         </div>
-
+        
     </div>
 
     <!-- RSVP -->
@@ -161,17 +278,17 @@
         <div class="max-w-md mx-auto px-6">
             <div class="text-center mb-10">
                 <div class="section-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
-                <div class="text-sm text-[#8a7560] mt-2">Просьба ответить до 1 июля</div>
+                <div class="text-sm text-[#8a7560] mt-2">Просьба ответить до 1 июля 2026</div>
             </div>
             
             <form id="rsvp-form" class="space-y-5">
                 <input type="text" id="name" placeholder="Ваше имя и фамилия" required
-                       class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#c9a96e] text-lg">
+                       class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#5b7a9e] text-lg">
                 
                 <input type="tel" id="phone" placeholder="Телефон" required
-                       class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#c9a96e] text-lg">
+                       class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#5b7a9e] text-lg">
                 
-                <select id="guests" class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#c9a96e] text-lg bg-white">
+                <select id="guests" class="w-full px-6 py-4 border border-[#d9c9b8] rounded-2xl focus:outline-none focus:border-[#5b7a9e] text-lg bg-white">
                     <option value="1">Только я</option>
                     <option value="2" selected>Я + 1 гость</option>
                     <option value="3">Я + 2 гостя</option>
@@ -179,31 +296,29 @@
                 </select>
                 
                 <button type="submit"
-                        class="w-full py-4 bg-[#2c241d] text-white font-medium rounded-2xl text-lg hover:bg-black transition-colors">
+                        class="w-full py-4 bg-[#1f2a3d] text-white font-medium rounded-2xl text-lg hover:bg-black transition-colors">
                     Отправить подтверждение
                 </button>
             </form>
             
             <div id="success" class="hidden text-center mt-8 py-6 bg-[#f4f0e9] rounded-2xl">
-                <i class="fas fa-heart text-[#c9a96e] text-3xl mb-3"></i>
+                <i class="fas fa-heart text-[#5b7a9e] text-3xl mb-3"></i>
                 <div class="font-semibold">Спасибо! Мы получили ваш ответ ❤️</div>
             </div>
         </div>
     </div>
-
+    
     <!-- Footer -->
-    <footer class="bg-[#2c241d] text-[#d9c9b8] py-12 text-center text-sm">
-        <div>Даниил &amp; Диана • 12.09.2026</div>
+    <footer class="bg-[#1f2a3d] text-[#d9c9b8] py-12 text-center text-sm">
+        <div>Даниил &amp; Диана • 25.08.2026</div>
         <div class="mt-2 text-xs opacity-60">С нетерпением ждём встречи!</div>
     </footer>
 
     <script>
-        // Tailwind
         function initTailwind() {
-            // already included
+            // Tailwind уже подключён
         }
         
-        // RSVP form
         function initForm() {
             const form = document.getElementById('rsvp-form');
             const success = document.getElementById('success');
@@ -220,72 +335,46 @@
                 setTimeout(() => {
                     form.style.display = 'none';
                     success.classList.remove('hidden');
-                    
-                    // лёгкий конфетти
                     createConfetti();
                 }, 900);
             });
         }
         
         function createConfetti() {
-            const colors = ['#c9a96e', '#d9c9b8', '#8a7560'];
-            for (let i = 0; i < 35; i++) {
+            const colors = ['#5b7a9e', '#d9c9b8', '#f5f0e6'];
+            for (let i = 0; i < 40; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
                     particle.style.cssText = `
                         position: fixed;
                         left: ${Math.random() * 100}vw;
                         top: -20px;
-                        width: 7px;
-                        height: 7px;
+                        width: 8px;
+                        height: 8px;
                         background: ${colors[Math.floor(Math.random()*colors.length)]};
                         border-radius: 50%;
                         pointer-events: none;
                         z-index: 9999;
-                        opacity: ${Math.random() * 0.6 + 0.4};
+                        opacity: ${Math.random() * 0.7 + 0.3};
                     `;
                     document.body.appendChild(particle);
                     
                     particle.animate([
                         { transform: 'translateY(0) rotate(0deg)' },
-                        { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random()*720 - 360}deg)` }
+                        { transform: `translateY(${window.innerHeight + 120}px) rotate(${Math.random()*720 - 360}deg)` }
                     ], {
-                        duration: Math.random() * 2800 + 2400,
+                        duration: Math.random() * 2600 + 2200,
                         easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
                     }).onfinish = () => particle.remove();
                 }, i * 2);
             }
         }
         
-        // Плавный скролл
-        function initSmoothScroll() {
-            // уже есть в браузере
-        }
-        
         function init() {
             initTailwind();
             initForm();
-            initSmoothScroll();
-            
-            // Бонус: при загрузке можно слегка «шевелить» стрелку
-            console.log('%c[Свадьба] Элегантный сайт-приглашение готов', 'color:#c9a96e');
         }
         
-.hero-bg {
-    background-image: url('FON.png');
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px) brightness(0.95);
-}
-
-/* === Для телефонов === */
-@media (max-width: 768px) {
-    .hero-bg {
-        background-image: url('FON-mob.png');
-        background-position: center 38%;
-        filter: blur(7px) brightness(0.92);
-    }
-}
         window.onload = init;
     </script>
 </body>
