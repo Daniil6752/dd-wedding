@@ -12,10 +12,13 @@
 
             body {
                 font-family: 'Inter', system-ui, sans-serif;
+                margin: 0;
+                padding: 0;
             }
 
+            /* ====================== ФОН ГЕРОЯ ====================== */
             .hero-bg {
-                position: fixed;           /* Главное изменение */
+                position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -30,9 +33,7 @@
             @media (max-width: 768px) {
                 .hero-bg {
                     background-image: url('FON-mob.png');
-                    background-position: center 38%;
                     filter: blur(7px) brightness(0.92);
-                    height: 100dvh;           /* важно для мобильных */
                 }
             }
 
@@ -42,12 +43,49 @@
                 z-index: 1;
             }
 
-            /* Остальной CSS (оставляем как было) */
-            .heading-serif {
-                font-family: 'Playfair Display', Georgia, serif;
-                font-weight: 700;
+            /* ====================== ФОН ЛОКАЦИИ ====================== */
+            .location-hero {
+                position: relative;
+                width: 100vw;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
+                min-height: 100dvh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
             }
 
+            .location-bg {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                z-index: 1;
+            }
+
+            @media (min-width: 769px) {
+                .location-bg {
+                    background-image: url('loc_pc.jpg');
+                }
+            }
+
+            @media (max-width: 768px) {
+                .location-bg {
+                    background-image: url('loc_mob.jpg');
+                }
+            }
+
+            .location-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
+                z-index: 2;
+            }
+
+            /* Остальные стили */
             .section-title {
                 font-size: 1.05rem;
                 letter-spacing: 4px;
@@ -64,38 +102,6 @@
             .navy { color: #1f2a3d; }
             .cream-bg { background-color: #f8f5ef; }
             .blue-accent { color: #5b7a9e; }
-
-            /* Локация */
-            .location-hero {
-                position: relative;
-                min-height: 100dvh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-            }
-
-            .location-bg {
-                position: absolute;
-                inset: 0;
-                background-image: url('loc_pc.jpg');
-                background-size: cover;
-                background-position: center 35%;
-                z-index: 1;
-            }
-
-            @media (max-width: 768px) {
-                .location-bg {
-                    background-position: center 40%;
-                }
-            }
-
-            .location-overlay {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
-                z-index: 2;
-            }
         </style>
 </head>
 <body class="bg-[#f8f5ef] text-[#1f2a3d]">
@@ -138,56 +144,122 @@
                 25 августа 2026 года мы хотим сказать друг другу «да» и связать свои судьбы в кругу самых дорогих нам людей. Ваше присутствие сделает этот день по-настоящему значимым и наполненным светом.
             </div>
         </div>
-
-        <!-- ТАЙМИНГ -->
-        <div class="mb-16">
-            <div class="text-center mb-10">
-                <div class="section-title">ТАЙМИНГ</div>
-                <div class="text-sm text-[#8a7560] mt-1">Расписание торжества</div>
-            </div>
+        <!-- КАЛЕНДАРЬ -->
+<!-- КАЛЕНДАРЬ — ВО ВСЮ ШИРИНУ -->
+<!-- КАЛЕНДАРЬ + ТАЙМИНГ -->
+<section class="my-20">
+    <div class="max-w-2xl mx-auto px-6">
+        
+        <!-- Календарь -->
+        <div class="text-center mb-12">
+            <div class="section-title mb-8">ДАТА ТОРЖЕСТВА</div>
             
-            <div class="max-w-md mx-auto space-y-8 text-[#2c3a4d]">
-                <div class="flex gap-6">
-                    <div class="w-20 flex-shrink-0 text-right">
-                        <div class="font-semibold text-xl">14:00</div>
+            <div class="bg-white rounded-3xl shadow-sm border border-[#d9c9b8] p-8 md:p-12">
+                <div class="text-[#5b7a9e] tracking-[3px] text-lg font-medium mb-3">25 АВГУСТА 2026</div>
+                <div class="text-7xl font-light text-[#1f2a3d] mb-8">25</div>
+                
+                <div class="grid grid-cols-7 gap-2 text-center text-sm md:text-base">
+                    <!-- Дни недели -->
+                    <div class="text-[#5b7a9e] font-medium py-2">ПН</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">ВТ</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">СР</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">ЧТ</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">ПТ</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">СБ</div>
+                    <div class="text-[#5b7a9e] font-medium py-2">ВС</div>
+                    
+                    <!-- Дни августа 2026 -->
+                    <div class="py-3 text-gray-300">27</div>
+                    <div class="py-3 text-gray-300">28</div>
+                    <div class="py-3 text-gray-300">29</div>
+                    <div class="py-3 text-gray-300">30</div>
+                    <div class="py-3 text-gray-300">31</div>
+                    <div class="py-3">1</div>
+                    <div class="py-3">2</div>
+                    
+                    <div class="py-3">3</div>
+                    <div class="py-3">4</div>
+                    <div class="py-3">5</div>
+                    <div class="py-3">6</div>
+                    <div class="py-3">7</div>
+                    <div class="py-3">8</div>
+                    <div class="py-3">9</div>
+                    
+                    <div class="py-3">10</div>
+                    <div class="py-3">11</div>
+                    <div class="py-3">12</div>
+                    <div class="py-3">13</div>
+                    <div class="py-3">14</div>
+                    <div class="py-3">15</div>
+                    <div class="py-3">16</div>
+                    
+                    <div class="py-3">17</div>
+                    <div class="py-3">18</div>
+                    <div class="py-3">19</div>
+                    <div class="py-3">20</div>
+                    <div class="py-3">21</div>
+                    <div class="py-3">22</div>
+                    <div class="py-3">23</div>
+                    
+                    <div class="py-3">24</div>
+                    <!-- Выделенная дата 25 -->
+                    <div class="py-3 bg-[#5b7a9e] text-white rounded-2xl font-semibold relative">
+                        25
+                        <div class="absolute left-1/2 top-full w-[2px] h-14 bg-[#d9c9b8] -translate-x-1/2"></div>
+                    </div>
+                    <div class="py-3">26</div>
+                    <div class="py-3">27</div>
+                    <div class="py-3">28</div>
+                    <div class="py-3">29</div>
+                    <div class="py-3">30</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Тайминг с продолжением линии -->
+        <div class="relative max-w-md mx-auto pl-12">
+            <div class="absolute left-[22px] top-0 bottom-0 w-[2px] bg-[#d9c9b8]"></div>
+
+            <div class="space-y-14">
+                <div class="flex gap-6 relative">
+                    <div class="w-16 text-right flex-shrink-0">
+                        <div class="text-2xl font-light">14:00</div>
                     </div>
                     <div>
-                        <div class="font-medium">Сбор гостей и welcome drink</div>
-                        <div class="text-sm text-[#6b5a4a]">На территории «Дом у леса»</div>
+                        <div class="font-medium">Сбор гостей и фуршет</div>
                     </div>
                 </div>
-                
-                <div class="flex gap-6">
-                    <div class="w-20 flex-shrink-0 text-right">
-                        <div class="font-semibold text-xl">15:00</div>
+
+                <div class="flex gap-6 relative">
+                    <div class="w-16 text-right flex-shrink-0">
+                        <div class="text-2xl font-light">15:00</div>
                     </div>
                     <div>
                         <div class="font-medium">Церемония бракосочетания</div>
-                        <div class="text-sm text-[#6b5a4a]">В саду у дома</div>
                     </div>
                 </div>
-                
-                <div class="flex gap-6">
-                    <div class="w-20 flex-shrink-0 text-right">
-                        <div class="font-semibold text-xl">16:30</div>
+
+                <div class="flex gap-6 relative">
+                    <div class="w-16 text-right flex-shrink-0">
+                        <div class="text-2xl font-light">16:30</div>
                     </div>
                     <div>
-                        <div class="font-medium">Фуршет и фотосессия</div>
-                        <div class="text-sm text-[#6b5a4a]">В тени леса и у пруда</div>
+                        <div class="font-medium">Банкет</div>
                     </div>
                 </div>
-                
-                <div class="flex gap-6">
-                    <div class="w-20 flex-shrink-0 text-right">
-                        <div class="font-semibold text-xl">19:00</div>
+
+                <div class="flex gap-6 relative">
+                    <div class="w-16 text-right flex-shrink-0">
+                        <div class="text-2xl font-light">20:00</div>
                     </div>
                     <div>
-                        <div class="font-medium">Праздничный ужин и танцы</div>
-                        <div class="text-sm text-[#6b5a4a]">В главном зале дома</div>
+                        <div class="font-medium">Вынос торта</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
         <!-- ЛОКАЦИЯ — во весь экран -->
 		<section class="location-hero">
@@ -205,16 +277,15 @@
 				</div>
 				
 				<p class="text-lg md:text-xl opacity-90 mb-10">
-					Адрес и точное место проведения<br>
-					будет в прикреплённом файле
+					улица Островского, 16, село Алабушево, городской округ Солнечногорск<br>141560
 				</p>
 				
-				<button onclick="window.open('https://yandex.ru/maps/-/CHfXqXvX', '_blank')"
+				<button onclick="window.open('https://yandex.ru/maps/-/CPwdqNZw', '_blank')"
 						class="px-10 py-4 bg-white text-[#1f2a3d] font-medium rounded-2xl text-lg hover:bg-[#f8f5ef] transition-all active:scale-[0.985]">
 					Посмотреть на карте
 				</button>
 				
-				<div class="mt-8 text-xs opacity-70">Московская область • Одинцовский район</div>
+				<div class="mt-8 text-xs opacity-70">Зеленоград • Москва</div>
 			</div>
 		</section>
 
@@ -376,6 +447,33 @@
         }
         
         window.onload = init;
+    </script>
+    <script>
+        // Параллакс только для героя (на локации оставляем обычный fixed внутри секции)
+        function initParallax() {
+            const heroBg = document.querySelector('.hero-bg');
+
+            let ticking = false;
+
+            function updatePosition() {
+                const scrollY = window.scrollY;
+                const speed = 0.7;
+
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrollY * speed}px)`;
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updatePosition);
+                    ticking = true;
+                }
+            });
+        }
+
+        window.addEventListener('load', initParallax);
     </script>
 </body>
 </html>
