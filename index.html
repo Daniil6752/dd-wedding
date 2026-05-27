@@ -7,9 +7,9 @@
     <link rel="icon" href="channels4_profile-no-bg-preview (carve.photos).png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-		<style>
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400&amp;display=swap');
-
+		<style>            
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&family=Marck+Script&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+            
             body {
                 font-family: 'Inter', system-ui, sans-serif;
                 margin: 0;
@@ -102,6 +102,546 @@
             .navy { color: #1f2a3d; }
             .cream-bg { background-color: #f8f5ef; }
             .blue-accent { color: #5b7a9e; }
+
+            /* ====================== КАЛЕНДАРЬ + ТАЙМИНГ ====================== */
+           /* ====================== КАЛЕНДАРЬ + ТАЙМИНГ ====================== */
+
+            /* Календарь теперь без общей карточки */
+            .calendar-top {
+                position: relative;
+                max-width: 620px;
+                margin: 0 auto;
+                padding: 0 0 10px;
+                background: transparent;
+            }
+
+            .calendar-weekdays,
+            .calendar-days {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                text-align: center;
+                align-items: center;
+            }
+
+            .calendar-weekdays {
+                color: #3f55c8;
+                font-size: 0.95rem;
+                letter-spacing: 3px;
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid rgba(63, 85, 200, 0.18);
+            }
+
+            .calendar-days {
+                color: #111111;
+                font-size: clamp(1.3rem, 5.8vw, 2.35rem);
+                font-weight: 400;
+                line-height: 1;
+            }
+
+            /* Обёртка нужна, чтобы линия начиналась ровно из 25 */
+            .date-connector-wrap {
+                position: relative;
+                display: flex;
+                justify-content: center;
+            }
+
+            /* 25 — маленький аккуратный кружок */
+            .heart-day {
+                width: 68px;
+                height: 68px;
+                border: none;
+                border-radius: 50%;
+                background: #4a58d8;
+                box-shadow: 0 5px 14px rgba(74, 88, 216, 0.16);
+                transform: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                z-index: 3;
+            }
+
+            .heart-day::before,
+            .heart-day::after {
+                display: none;
+            }
+
+            .heart-day span {
+                position: static;
+                transform: none;
+                color: #ffffff;
+                font-size: 2.2rem;
+                font-weight: 500;
+                line-height: 1;
+            }
+
+            /* Тайминг отдельный, без карточки */
+            .wedding-timeline {
+                position: relative;
+                max-width: 620px;
+                height: 570px;
+                margin: -2px auto 0;
+                background: transparent;
+            }
+
+            /* Волнистая линия выходит из 25 */
+            .timeline-line {
+                position: absolute;
+
+                /* центр даты 25 = второй столбец календаря = 1.5 / 7 = 21.4286% */
+                /* M78 в SVG = начало линии, поэтому вычитаем 78px */
+                left: calc(21.4286% - 78px);
+
+                top: -1px;
+                width: 260px;
+                height: 570px;
+                pointer-events: none;
+                z-index: 1;
+            }
+            .timeline-line path {
+                fill: none;
+                stroke: #4a58d8;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            /* Убрать старые элементы, если остались */
+            .wedding-block,
+            .timeline-icon,
+            .timeline-pearl {
+                display: none;
+            }
+
+            .timeline-item {
+                position: absolute;
+                z-index: 2;
+            }
+
+            .timeline-card {
+                padding: 0;
+                position: relative;
+            }
+
+            /* Расстановка как на скетче */
+            .timeline-left {
+                left: 0;
+                width: 47%;
+                text-align: left;
+            }
+
+            .timeline-right {
+                right: 0;
+                width: 50%;
+                text-align: right;
+            }
+
+            .first-event {
+                top: 92px;
+            }
+
+            .second-event {
+                top: 235px;
+            }
+
+            .third-event {
+                top: 392px;
+            }
+
+            .fourth-event {
+                top: 495px;
+            }
+
+            .timeline-time {
+                display: inline-block;
+                font-family: 'Inter', system-ui, sans-serif;
+                font-size: clamp(1.3rem, 4.3vw, 1.45rem);
+                line-height: 1;
+                font-weight: 400;
+                color: #3f55c8;
+                letter-spacing: 1px;
+                vertical-align: baseline;
+            }
+
+            .timeline-title {
+                display: inline-block;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.75rem, 6.4vw, 2.8rem);
+                line-height: 1.02;
+                font-weight: 500;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+                color: #3f55c8;
+                vertical-align: baseline;
+            }
+
+            .timeline-left .timeline-time {
+                margin-right: 8px;
+            }
+
+            .timeline-right .timeline-time {
+                margin-left: 8px;
+            }
+
+            .timeline-desc {
+                display: none;
+            }
+
+            @media (max-width: 640px) {
+                .calendar-weekdays {
+                    font-size: 0.82rem;
+                    letter-spacing: 2px;
+                }
+
+                .calendar-days {
+                    font-size: clamp(1.25rem, 7vw, 2.1rem);
+                }
+
+                .heart-day {
+                    width: 58px;
+                    height: 58px;
+                }
+
+                .heart-day span {
+                    font-size: 1.8rem;
+                }
+
+                .wedding-timeline {
+                    height: 540px;
+                    margin-top: -1px;
+                }
+
+                .timeline-line {
+                    left: calc(21.4286% - 78px);
+                    width: 260px;
+                    height: 560px;
+                }
+
+                .timeline-left {
+                    width: 49%;
+                }
+
+                .timeline-right {
+                    width: 50%;
+                }
+
+                .first-event {
+                    top: 88px;
+                }
+
+                .second-event {
+                    top: 230px;
+                }
+
+                .third-event {
+                    top: 382px;
+                }
+
+                .fourth-event {
+                    top: 485px;
+                }
+
+                .timeline-time {
+                    font-size: 1.05rem;
+                    letter-spacing: 0.5px;
+                }
+
+                .timeline-title {
+                    font-size: clamp(1.25rem, 6vw, 1.8rem);
+                    letter-spacing: 2px;
+                }
+
+                .timeline-left .timeline-time {
+                    margin-right: 5px;
+                }
+
+                .timeline-right .timeline-time {
+                    margin-left: 5px;
+                }
+            }
+            /* ===== ПРАВКА ТОЛЬКО ДЛЯ ПК: тайминг не налезает на линию ===== */
+            @media (min-width: 641px) {
+                .wedding-timeline {
+                    max-width: 620px;
+                    height: 590px;
+                }
+
+                .timeline-line {
+                    left: calc(21.4286% - 78px);
+                    top: 0;
+                    width: 300px;
+                    height: 590px;
+                }
+
+                /* Левые подписи: Фуршет и Банкет */
+                .timeline-left {
+                    left: 0;
+                    width: 32%;
+                    text-align: left;
+                }
+
+                /* Правые подписи: Церемония и Торт */
+                .timeline-right {
+                    right: 0;
+                    width: 38%;
+                    text-align: right;
+                }
+
+                .first-event {
+                    top: 92px;
+                }
+
+                .second-event {
+                    top: 225px;
+                }
+
+                .third-event {
+                    top: 375px;
+                }
+
+                .fourth-event {
+                    top: 500px;
+                }
+
+                .timeline-title {
+                    font-size: 2.55rem;
+                    letter-spacing: 2.2px;
+                    white-space: nowrap;
+                }
+
+                .timeline-time {
+                    font-size: 1.3rem;
+                    white-space: nowrap;
+                }
+            }
+            /* ===== ЛИНИЯ ТАЙМЛАЙНА: мобилка / ПК отдельно ===== */
+
+            .timeline-line-desktop {
+                display: none;
+            }
+
+            .timeline-line-mobile {
+                display: block;
+            }
+
+            @media (min-width: 641px) {
+                .timeline-line-mobile {
+                    display: none;
+                }
+
+                .timeline-line-desktop {
+                    display: block;
+                    position: absolute;
+
+                    /* центр даты 25 минус стартовая точка M105 */
+                    left: calc(21.4286% - 105px);
+
+                    top: 0;
+                    width: 430px;
+                    height: 590px;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+
+                .timeline-line-desktop path {
+                    fill: none;
+                    stroke: #4a58d8;
+                    stroke-width: 3;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+            /* ====================== ДРЕСС-КОД ====================== */
+
+            .dress-code-section {
+                position: relative;
+                padding: 20px 0 30px;
+            }
+
+            .dress-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(2.4rem, 7vw, 3.8rem);
+                line-height: 1;
+                font-weight: 500;
+                color: #5b7a9e;
+                margin-bottom: 24px;
+            }
+
+            .dress-text {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.15rem, 3.6vw, 1.55rem);
+                line-height: 1.28;
+                font-weight: 500;
+                color: #5b7a9e;
+                margin: 0 auto 42px;
+            }
+
+            /* Палитра сердечками */
+            .dress-palette {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: clamp(14px, 4vw, 32px);
+                margin-bottom: 62px;
+            }
+
+            .palette-heart {
+                width: 44px;
+                height: 44px;
+                position: relative;
+                transform: rotate(-45deg);
+                border-radius: 9px 9px 5px 5px;
+
+                box-shadow: none;
+                border: none;
+            }
+
+            .palette-heart::before,
+            .palette-heart::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                border-radius: 50%;
+
+                box-shadow: none;
+                border: none;
+            }
+
+            .palette-heart::before {
+                top: -50%;
+                left: 0;
+            }
+
+            .palette-heart::after {
+                top: 0;
+                left: 50%;
+            }
+
+            /* Карточки с фото */
+            .dress-examples {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: clamp(22px, 5vw, 46px);
+                margin-bottom: 42px;
+            }
+
+            .dress-photo-card {
+                position: relative;
+                background: #ffffff;
+                padding: 10px;
+                border-radius: 8px;
+                transform: rotate(-2deg);
+                box-shadow: 0 14px 28px rgba(31, 42, 61, 0.12);
+            }
+
+            .dress-photo-card:nth-child(2) {
+                transform: rotate(2deg);
+            }
+
+            .dress-photo-card::before {
+                content: "";
+                position: absolute;
+                inset: -11px;
+                border: 2px solid #5b7a9e;
+                border-radius: 18px;
+                z-index: -1;
+                clip-path: polygon(
+                    0% 8%, 8% 0%, 35% 2%, 50% 0%, 66% 3%, 92% 0%, 100% 9%,
+                    98% 35%, 100% 50%, 97% 67%, 100% 92%, 91% 100%,
+                    65% 98%, 50% 100%, 34% 97%, 8% 100%, 0% 91%,
+                    3% 65%, 0% 50%, 2% 35%
+                );
+            }
+
+            .dress-photo-card img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 5;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+
+            /* Кнопка */
+            .dress-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 220px;
+                padding: 14px 30px;
+                border-radius: 999px;
+                background: #5b7a9e;
+                color: #ffffff;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.35rem;
+                line-height: 1;
+                font-weight: 600;
+                text-decoration: none;
+                box-shadow: 0 10px 22px rgba(91, 122, 158, 0.24);
+                transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            }
+
+            .dress-button:hover {
+                background: #1f2a3d;
+                transform: translateY(-2px);
+                box-shadow: 0 14px 28px rgba(31, 42, 61, 0.25);
+            }
+
+            .dress-button:active {
+                transform: translateY(0);
+            }
+
+            /* Мобилка */
+            @media (max-width: 640px) {
+                .dress-code-section {
+                    margin-top: 70px;
+                    margin-bottom: 70px;
+                }
+
+                .dress-title {
+                    font-size: 2.7rem;
+                    margin-bottom: 20px;
+                }
+
+                .dress-text {
+                    font-size: 1.25rem;
+                    margin-bottom: 38px;
+                }
+
+                .dress-palette {
+                    gap: 18px;
+                    margin-bottom: 54px;
+                }
+
+                .palette-heart {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 9px 9px 5px 5px;
+                }
+
+                .dress-examples {
+                    gap: 24px;
+                    margin-bottom: 38px;
+                }
+
+                .dress-photo-card {
+                    padding: 7px;
+                }
+
+                .dress-photo-card::before {
+                    inset: -8px;
+                    border-width: 1.5px;
+                    border-radius: 14px;
+                }
+
+                .dress-button {
+                    min-width: 210px;
+                    padding: 13px 28px;
+                    font-size: 1.25rem;
+                }
+            }
         </style>
 </head>
 <body class="bg-[#f8f5ef] text-[#1f2a3d]">
@@ -144,116 +684,89 @@
                 25 августа 2026 года мы хотим сказать друг другу «да» и связать свои судьбы в кругу самых дорогих нам людей. Ваше присутствие сделает этот день по-настоящему значимым и наполненным светом.
             </div>
         </div>
-        <!-- КАЛЕНДАРЬ -->
-<!-- КАЛЕНДАРЬ — ВО ВСЮ ШИРИНУ -->
-<!-- КАЛЕНДАРЬ + ТАЙМИНГ -->
+        <!-- КАЛЕНДАРЬ + ТАЙМИНГ — СИНИЙ / БЕЛЫЙ / ПЕРЛАМУТР -->
 <section class="my-20">
     <div class="max-w-2xl mx-auto px-6">
-        
-        <!-- Календарь -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
             <div class="section-title mb-8">ДАТА ТОРЖЕСТВА</div>
-            
-            <div class="bg-white rounded-3xl shadow-sm border border-[#d9c9b8] p-8 md:p-12">
-                <div class="text-[#5b7a9e] tracking-[3px] text-lg font-medium mb-3">25 АВГУСТА 2026</div>
-                <div class="text-7xl font-light text-[#1f2a3d] mb-8">25</div>
-                
-                <div class="grid grid-cols-7 gap-2 text-center text-sm md:text-base">
-                    <!-- Дни недели -->
-                    <div class="text-[#5b7a9e] font-medium py-2">ПН</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">ВТ</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">СР</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">ЧТ</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">ПТ</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">СБ</div>
-                    <div class="text-[#5b7a9e] font-medium py-2">ВС</div>
-                    
-                    <!-- Дни августа 2026 -->
-                    <div class="py-3 text-gray-300">27</div>
-                    <div class="py-3 text-gray-300">28</div>
-                    <div class="py-3 text-gray-300">29</div>
-                    <div class="py-3 text-gray-300">30</div>
-                    <div class="py-3 text-gray-300">31</div>
-                    <div class="py-3">1</div>
-                    <div class="py-3">2</div>
-                    
-                    <div class="py-3">3</div>
-                    <div class="py-3">4</div>
-                    <div class="py-3">5</div>
-                    <div class="py-3">6</div>
-                    <div class="py-3">7</div>
-                    <div class="py-3">8</div>
-                    <div class="py-3">9</div>
-                    
-                    <div class="py-3">10</div>
-                    <div class="py-3">11</div>
-                    <div class="py-3">12</div>
-                    <div class="py-3">13</div>
-                    <div class="py-3">14</div>
-                    <div class="py-3">15</div>
-                    <div class="py-3">16</div>
-                    
-                    <div class="py-3">17</div>
-                    <div class="py-3">18</div>
-                    <div class="py-3">19</div>
-                    <div class="py-3">20</div>
-                    <div class="py-3">21</div>
-                    <div class="py-3">22</div>
-                    <div class="py-3">23</div>
-                    
-                    <div class="py-3">24</div>
-                    <!-- Выделенная дата 25 -->
-                    <div class="py-3 bg-[#5b7a9e] text-white rounded-2xl font-semibold relative">
-                        25
-                        <div class="absolute left-1/2 top-full w-[2px] h-14 bg-[#d9c9b8] -translate-x-1/2"></div>
+
+            <!-- КАЛЕНДАРЬ ОТДЕЛЬНО -->
+            <div class="calendar-top">
+                <div class="timeline-title">Август<br></div>
+                <div class="calendar-weekdays">
+                    <div>ПН</div>
+                    <div>ВТ</div>
+                    <div>СР</div>
+                    <div>ЧТ</div>
+                    <div>ПТ</div>
+                    <div>СБ</div>
+                    <div>ВС</div>
+                </div>
+
+                <div class="calendar-days">
+                    <div>24</div>
+
+                    <div class="date-connector-wrap">
+                        <div class="heart-day">
+                            <span>25</span>
+                        </div>
                     </div>
-                    <div class="py-3">26</div>
-                    <div class="py-3">27</div>
-                    <div class="py-3">28</div>
-                    <div class="py-3">29</div>
-                    <div class="py-3">30</div>
+
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Тайминг с продолжением линии -->
-        <div class="relative max-w-md mx-auto pl-12">
-            <div class="absolute left-[22px] top-0 bottom-0 w-[2px] bg-[#d9c9b8]"></div>
+            <!-- ТАЙМИНГ ОТДЕЛЬНО, ЛИНИЯ ВЫХОДИТ ИЗ КАЛЕНДАРЯ -->
+            <div class="wedding-timeline">
+                <svg class="timeline-line timeline-line-mobile" viewBox="0 0 260 570" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="
+                        M78 0
+                        C190 35, 250 75, 228 130
+                        C205 190, 85 180, 60 245
+                        C35 315, 210 305, 205 390
+                        C200 470, 90 445, 85 570
+                    " />
+                </svg>
 
-            <div class="space-y-14">
-                <div class="flex gap-6 relative">
-                    <div class="w-16 text-right flex-shrink-0">
-                        <div class="text-2xl font-light">14:00</div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Сбор гостей и фуршет</div>
+                <svg class="timeline-line timeline-line-desktop" viewBox="0 0 430 590" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="
+                        M105 0
+                        C260 38, 390 92, 350 165
+                        C310 238, 90 215, 78 310
+                        C66 405, 325 385, 300 485
+                        C286 540, 190 560, 145 590
+                    " />
+                </svg>
+
+                <div class="timeline-item timeline-left first-event">
+                    <div class="timeline-card">
+                        <span class="timeline-time">14:00</span>
+                        <span class="timeline-title">Фуршет</span>
                     </div>
                 </div>
 
-                <div class="flex gap-6 relative">
-                    <div class="w-16 text-right flex-shrink-0">
-                        <div class="text-2xl font-light">15:00</div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Церемония бракосочетания</div>
+                <div class="timeline-item timeline-right second-event">
+                    <div class="timeline-card">
+                        <span class="timeline-title">Церемония</span>
+                        <span class="timeline-time">15:00</span>
                     </div>
                 </div>
 
-                <div class="flex gap-6 relative">
-                    <div class="w-16 text-right flex-shrink-0">
-                        <div class="text-2xl font-light">16:30</div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Банкет</div>
+                <div class="timeline-item timeline-left third-event">
+                    <div class="timeline-card">
+                        <span class="timeline-time">16:30</span>
+                        <span class="timeline-title">Банкет</span>
                     </div>
                 </div>
 
-                <div class="flex gap-6 relative">
-                    <div class="w-16 text-right flex-shrink-0">
-                        <div class="text-2xl font-light">20:00</div>
-                    </div>
-                    <div>
-                        <div class="font-medium">Вынос торта</div>
+                <div class="timeline-item timeline-right fourth-event">
+                    <div class="timeline-card">
+                        <span class="timeline-title">Торт</span>
+                        <span class="timeline-time">20:00</span>
                     </div>
                 </div>
             </div>
@@ -291,51 +804,46 @@
 
         <!-- ДРЕСС КОД -->
         <div class="mb-16">
-            <div class="text-center mb-8">
-                <div class="section-title">ДРЕСС КОД</div>
-            </div>
-            
-            <div class="max-w-md mx-auto text-center">
-                <div class="text-[#2c3a4d] leading-relaxed mb-8">
-                    Мы знаем, вы прекрасно выглядите в любом наряде.<br>
-                    Но нам будет очень приятно, если вы поддержите<br>
-                    цветовую гамму нашего вечера.
+            <!-- ДРЕСС КОД -->
+            <section class="dress-code-section my-24">
+                <div class="text-center max-w-xl mx-auto px-4">
+                    <div class="dress-title">Дресс-код</div>
+
+                    <p class="dress-text">
+                        Для нас самое главное - ваше присутствие!<br>
+                        Но мы будем очень признательны, если вы поддержите цветовую гамму нашей свадьбы!
+                    </p>
+
+                    <!-- Палитра сердечками -->
+                    <div class="dress-palette">
+                        <div class="palette-heart" style="background-color: #f7f3e8;"></div>
+                        <div class="palette-heart" style="background-color: #ffffff;"></div>
+                        <div class="palette-heart" style="background-color: #dce9f6;"></div>
+                        <div class="palette-heart" style="background-color: #5b7a9e;"></div>
+                        <div class="palette-heart" style="background-color: #1f2a3d;"></div>
+                    </div>
+
+                    <!-- Фото-примеры -->
+                    <div class="dress-examples">
+                        <div class="dress-photo-card">
+                            <img src="WOMEN.jpg" alt="Пример женского образа">
+                        </div>
+
+                        <div class="dress-photo-card">
+                            <img src="MAN.jpg" alt="Пример мужского образа">
+                        </div>
+                    </div>
+
+                    <!-- Кнопка -->
+                    <a href="https://ru.pinterest.com/pin/40180621668664846/" target="_blank" class="dress-button">
+                        Примеры образов
+                    </a>
                 </div>
-                
-                <!-- Цвета -->
-                <div class="flex justify-center gap-4 mb-8">
-                    <div class="flex flex-col items-center">
-                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #4a6fa5;"></div>
-                        <div class="text-xs mt-2 text-[#6b5a4a]">Синий</div>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #ffffff;"></div>
-                        <div class="text-xs mt-2 text-[#6b5a4a]">Белый</div>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #f5f0e6;"></div>
-                        <div class="text-xs mt-2 text-[#6b5a4a]">Кремовый</div>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-14 h-14 rounded-full border border-[#d9c9b8]" style="background-color: #a8c3b8;"></div>
-                        <div class="text-xs mt-2 text-[#6b5a4a]">Мятный</div>
-                    </div>
-                </div>
-                
-                <div class="text-sm text-[#6b5a4a]">
-                    Для женщин — платья и костюмы в указанных оттенках.<br>
-                    Для мужчин — светлые костюмы или рубашки с брюками.
-                </div>
-            </div>
+            </section>
         </div>
 
         <!-- Короткое пожелание -->
-        <div class="text-center max-w-md mx-auto mb-16">
-            <div class="elegant-text text-lg">
-                Мы очень ждём вас и заранее благодарим<br>
-                за то, что разделите с нами этот светлый день.
-            </div>
-            
+        <div class="text-center max-w-md mx-auto mb-16">            
             <div class="mt-10 text-[#6b5a4a]">
                 С любовью,<br>
                 <span class="font-semibold text-[#1f2a3d]">Даниил и Диана</span>
