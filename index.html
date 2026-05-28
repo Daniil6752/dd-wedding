@@ -124,7 +124,7 @@
             }
 
             .calendar-weekdays {
-                color: #3f55c8;
+                color: #5b7a9e;
                 font-size: 0.95rem;
                 letter-spacing: 3px;
                 margin-bottom: 8px;
@@ -133,7 +133,7 @@
             }
 
             .calendar-days {
-                color: #111111;
+                color: #000000;
                 font-size: clamp(1.3rem, 5.8vw, 2.35rem);
                 font-weight: 400;
                 line-height: 1;
@@ -595,52 +595,190 @@
 
             /* Мобилка */
             @media (max-width: 640px) {
-                .dress-code-section {
-                    margin-top: 70px;
-                    margin-bottom: 70px;
-                }
-
-                .dress-title {
-                    font-size: 2.7rem;
-                    margin-bottom: 20px;
-                }
-
-                .dress-text {
-                    font-size: 1.25rem;
-                    margin-bottom: 38px;
-                }
-
                 .dress-palette {
-                    gap: 18px;
+                    flex-wrap: nowrap;
+                    gap: 0;
                     margin-bottom: 54px;
                 }
 
-                .palette-heart {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 9px 9px 5px 5px;
+                .palette-heart-img {
+                    width: 58px;
+                    margin-left: -13px;
                 }
 
-                .dress-examples {
-                    gap: 24px;
-                    margin-bottom: 38px;
+                .palette-heart-img:first-child {
+                    margin-left: 0;
+                }
+            }
+            .dress-palette {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+                flex-wrap: nowrap;
+                margin-bottom: 62px;
+            }
+
+            .palette-heart-img {
+                width: clamp(58px, 10vw, 86px);
+                height: auto;
+                display: block;
+                object-fit: contain;
+                margin-left: -14px;
+            }
+
+            .palette-heart-img:first-child {
+                margin-left: 0;
+            }
+            /* ===== ФИНАЛЬНАЯ ПРАВКА КАЛЕНДАРЯ И ТАЙМЛАЙНА ===== */
+
+            :root {
+                --wedding-blue: #5b7a9e;
+                --wedding-blue-soft: #5b7a9e;
+                --wedding-date-text: #5a6d86;
+            }
+
+            /* Заголовок "ДАТА ТОРЖЕСТВА" — темнее, но мягко */
+            .section-title {
+                color: var(--wedding-blue-soft);
+                font-weight: 500;
+            }
+
+            /* Месяц "АВГУСТ" */
+            .calendar-top > .timeline-title {
+                color: var(--wedding-blue);
+                font-size: clamp(2rem, 6vw, 3rem);
+                letter-spacing: 5px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            /* Дни недели */
+            .calendar-weekdays {
+                color: var(--wedding-blue);
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+                border-bottom: 1px solid rgba(63, 85, 200, 0.18);
+            }
+
+            /* Цифры дат: не чёрные, тоньше и мягче */
+            .calendar-days {
+                color: var(--wedding-date-text);
+                font-size: clamp(1.75rem, 5vw, 2rem);
+                font-weight: 300;
+            }
+
+            /* Дата 25 — больше и заметнее */
+            .heart-day {
+                width: 74px;
+                height: 74px;
+                background: var(--wedding-blue);
+                box-shadow: 0 8px 18px rgba(63, 85, 200, 0.20);
+            }
+
+            .heart-day span {
+                color: #ffffff;
+                font-size: 2.35rem;
+                font-weight: 500;
+            }
+
+            /* Линия одним цветом */
+            .timeline-line path,
+            .timeline-line-desktop path,
+            .timeline-line-mobile path {
+                stroke: var(--wedding-blue);
+                stroke-width: 3;
+            }
+
+            /* Время делаем больше */
+            .timeline-time {
+                color: var(--wedding-blue);
+                font-family: 'Inter', system-ui, sans-serif;
+                font-size: clamp(1.45rem, 4vw, 1.75rem);
+                font-weight: 400;
+                letter-spacing: 1px;
+            }
+
+            /* Названия событий — чуть меньше и аккуратнее */
+            .timeline-title {
+                color: var(--wedding-blue);
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.55rem, 5.4vw, 2.35rem);
+                line-height: 1.02;
+                font-weight: 500;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+            }
+
+            /* ПК: чуть аккуратнее расставляем */
+            @media (min-width: 641px) {
+                .calendar-days {
+                    font-size: 2.25rem;
                 }
 
-                .dress-photo-card {
-                    padding: 7px;
+                .heart-day {
+                    width: 78px;
+                    height: 78px;
                 }
 
-                .dress-photo-card::before {
-                    inset: -8px;
-                    border-width: 1.5px;
-                    border-radius: 14px;
+                .heart-day span {
+                    font-size: 2.45rem;
                 }
 
-                .dress-button {
-                    min-width: 210px;
-                    padding: 13px 28px;
-                    font-size: 1.25rem;
+                .timeline-time {
+                    font-size: 1.65rem;
                 }
+
+                .timeline-title {
+                    font-size: 2.3rem;
+                    letter-spacing: 3.5px;
+                }
+            }
+
+            /* Телефон */
+            @media (max-width: 640px) {
+                .calendar-top > .timeline-title {
+                    font-size: 2rem;
+                    letter-spacing: 4px;
+                }
+
+                .calendar-weekdays {
+                    font-size: 0.78rem;
+                    letter-spacing: 2px;
+                }
+
+                .calendar-days {
+                    font-size: 1.75rem;
+                    color: var(--wedding-date-text);
+                }
+
+                .heart-day {
+                    width: 62px;
+                    height: 62px;
+                }
+
+                .heart-day span {
+                    font-size: 2rem;
+                }
+
+                .timeline-time {
+                    font-size: 1.35rem;
+                }
+
+                .timeline-title {
+                    font-size: 1.45rem;
+                    letter-spacing: 2.5px;
+                }
+            }
+            .calendar-month {
+                font-family: 'Cormorant Garamond', serif;
+                color: #5b7a9e;
+                font-size: clamp(2rem, 6vw, 3rem);
+                line-height: 1;
+                font-weight: 500;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                margin-bottom: 12px;
             }
         </style>
 </head>
@@ -688,11 +826,11 @@
 <section class="my-20">
     <div class="max-w-2xl mx-auto px-6">
         <div class="text-center mb-8">
-            <div class="section-title mb-8">ДАТА ТОРЖЕСТВА</div>
+            <div class="section-title mb-8"><strong>ДАТА ТОРЖЕСТВА</strong></div>
 
             <!-- КАЛЕНДАРЬ ОТДЕЛЬНО -->
             <div class="calendar-top">
-                <div class="timeline-title">Август<br></div>
+                <div class="calendar-month">Август</div>
                 <div class="calendar-weekdays">
                     <div>ПН</div>
                     <div>ВТ</div>
@@ -816,11 +954,13 @@
 
                     <!-- Палитра сердечками -->
                     <div class="dress-palette">
-                        <div class="palette-heart" style="background-color: #f7f3e8;"></div>
-                        <div class="palette-heart" style="background-color: #ffffff;"></div>
-                        <div class="palette-heart" style="background-color: #dce9f6;"></div>
-                        <div class="palette-heart" style="background-color: #5b7a9e;"></div>
-                        <div class="palette-heart" style="background-color: #1f2a3d;"></div>
+                        <img src="сердце гол.png" alt="Голубой" class="palette-heart-img">
+                        <img src="сердце-син.png" alt="Синий" class="palette-heart-img">
+                        <img src="сердце син.png" alt="Сиренево-синий" class="palette-heart-img">
+                        <img src="сердце сер.png" alt="Серый" class="palette-heart-img">
+                        <img src="Сердце зел.png" alt="Зелёный" class="palette-heart-img">
+                        <img src="Серце роз.png" alt="Розовый" class="palette-heart-img">
+                        <img src="сердце кор.png" alt="Коричневый" class="palette-heart-img">
                     </div>
 
                     <!-- Фото-примеры -->
@@ -840,6 +980,7 @@
                     </a>
                 </div>
             </section>
+
         </div>
 
         <!-- Короткое пожелание -->
@@ -894,31 +1035,53 @@
     </footer>
 
     <script>
-        function initTailwind() {
-            // Tailwind уже подключён
-        }
-        
-        function initForm() {
-            const form = document.getElementById('rsvp-form');
-            const success = document.getElementById('success');
+            function initTailwind() {
+                // Tailwind уже подключён
+            }
             
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const btn = form.querySelector('button');
-                const originalText = btn.innerHTML;
-                
-                btn.disabled = true;
-                btn.innerHTML = 'Отправляем...';
-                
-                setTimeout(() => {
-                    form.style.display = 'none';
-                    success.classList.remove('hidden');
-                    createConfetti();
-                }, 900);
-            });
-        }
-        
+            function initForm() {
+                const form = document.getElementById('rsvp-form');
+                const success = document.getElementById('success');
+
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const btn = form.querySelector('button');
+                    const originalText = btn.innerHTML;
+
+                    btn.disabled = true;
+                    btn.innerHTML = 'Отправляем...';
+
+                    const name = document.getElementById('name').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const guests = document.getElementById('guests').value;
+
+                    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMwrZk-UYd_7H8256OM6JXs7qo75_A_pW1k5Gk1p6odZ-1rA/formResponse';
+
+                    const formData = new FormData();
+
+                    formData.append('entry.1522371729', name);
+                    formData.append('entry.668100698', phone);
+                    formData.append('entry.1085052230', guests);
+
+                    try {
+                        await fetch(googleFormUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            body: formData
+                        });
+
+                        form.style.display = 'none';
+                        success.classList.remove('hidden');
+                        createConfetti();
+
+                    } catch (error) {
+                        btn.disabled = false;
+                        btn.innerHTML = originalText;
+                        alert('Не получилось отправить форму. Попробуйте ещё раз.');
+                    }
+                });
+            }
         function createConfetti() {
             const colors = ['#5b7a9e', '#d9c9b8', '#f5f0e6'];
             for (let i = 0; i < 40; i++) {
