@@ -146,15 +146,14 @@
                 justify-content: center;
             }
 
-            /* 25 — маленький аккуратный кружок */
+           /* 25 — аккуратное синее сердечко */
             .heart-day {
-                width: 68px;
-                height: 68px;
-                border: none;
-                border-radius: 50%;
-                background: #4a58d8;
-                box-shadow: 0 5px 14px rgba(74, 88, 216, 0.16);
-                transform: none;
+                width: 44px;
+                height: 44px;
+                background: var(--wedding-blue);
+                transform: rotate(-45deg);
+                border-radius: 15px 15px 8px 8px;
+                box-shadow: 0 8px 18px rgba(91, 122, 158, 0.22);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -164,14 +163,30 @@
 
             .heart-day::before,
             .heart-day::after {
-                display: none;
+                content: "";
+                position: absolute;
+                width: 54px;
+                height: 54px;
+                background: var(--wedding-blue);
+                border-radius: 50%;
+            }
+
+            .heart-day::before {
+                top: -27px;
+                left: 0;
+            }
+
+            .heart-day::after {
+                top: 0;
+                left: 27px;
             }
 
             .heart-day span {
-                position: static;
-                transform: none;
+                position: relative;
+                z-index: 4;
+                transform: rotate(45deg);
                 color: #ffffff;
-                font-size: 2.2rem;
+                font-size: 1.8rem;
                 font-weight: 500;
                 line-height: 1;
             }
@@ -470,7 +485,7 @@
 
             .dress-text {
                 font-family: 'Cormorant Garamond', serif;
-                font-size: clamp(1.15rem, 3.6vw, 1.55rem);
+                font-size: clamp(1.55rem, 3.6vw, 1.55rem);
                 line-height: 1.28;
                 font-weight: 500;
                 color: #5b7a9e;
@@ -485,42 +500,7 @@
                 gap: clamp(14px, 4vw, 32px);
                 margin-bottom: 62px;
             }
-
-            .palette-heart {
-                width: 44px;
-                height: 44px;
-                position: relative;
-                transform: rotate(-45deg);
-                border-radius: 9px 9px 5px 5px;
-
-                box-shadow: none;
-                border: none;
-            }
-
-            .palette-heart::before,
-            .palette-heart::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: inherit;
-                border-radius: 50%;
-
-                box-shadow: none;
-                border: none;
-            }
-
-            .palette-heart::before {
-                top: -50%;
-                left: 0;
-            }
-
-            .palette-heart::after {
-                top: 0;
-                left: 50%;
-            }
-
-            /* Карточки с фото */
+                        /* Карточки с фото */
             .dress-examples {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -600,15 +580,6 @@
                     gap: 0;
                     margin-bottom: 54px;
                 }
-
-                .palette-heart-img {
-                    width: 58px;
-                    margin-left: -13px;
-                }
-
-                .palette-heart-img:first-child {
-                    margin-left: 0;
-                }
             }
             .dress-palette {
                 display: flex;
@@ -617,18 +588,6 @@
                 gap: 0;
                 flex-wrap: nowrap;
                 margin-bottom: 62px;
-            }
-
-            .palette-heart-img {
-                width: clamp(58px, 10vw, 86px);
-                height: auto;
-                display: block;
-                object-fit: contain;
-                margin-left: -14px;
-            }
-
-            .palette-heart-img:first-child {
-                margin-left: 0;
             }
             /* ===== ФИНАЛЬНАЯ ПРАВКА КАЛЕНДАРЯ И ТАЙМЛАЙНА ===== */
 
@@ -711,18 +670,36 @@
             }
 
             /* ПК: чуть аккуратнее расставляем */
+            /* ПК: чуть аккуратнее расставляем */
             @media (min-width: 641px) {
                 .calendar-days {
-                    font-size: 2.25rem;
+                    font-size: 1.8rem;
                 }
 
                 .heart-day {
-                    width: 78px;
-                    height: 78px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 16px 16px 8px 8px;
+                }
+
+                .heart-day::before,
+                .heart-day::after {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .heart-day::before {
+                    top: -15px;
+                    left: 0;
+                }
+
+                .heart-day::after {
+                    top: 0;
+                    left: 15px;
                 }
 
                 .heart-day span {
-                    font-size: 2.45rem;
+                    font-size: 1.8rem;
                 }
 
                 .timeline-time {
@@ -748,25 +725,43 @@
                 }
 
                 .calendar-days {
-                    font-size: 1.75rem;
+                    font-size: 1.5rem;
                     color: var(--wedding-date-text);
                 }
 
                 .heart-day {
-                    width: 62px;
-                    height: 62px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 14px 14px 7px 7px;
+
+                }
+
+                .heart-day::before,
+                .heart-day::after {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .heart-day::before {
+                    top: -10px;
+                    left: 1px;
+                }
+
+                .heart-day::after {
+                    left: 12px;
                 }
 
                 .heart-day span {
-                    font-size: 2rem;
+                    font-size: 1.6rem;
+                    left: 1px;
                 }
 
                 .timeline-time {
-                    font-size: 1.35rem;
+                    font-size: 1.2rem;
                 }
 
                 .timeline-title {
-                    font-size: 1.45rem;
+                    font-size: 1.6rem;
                     letter-spacing: 2.5px;
                 }
             }
@@ -780,6 +775,305 @@
                 text-transform: uppercase;
                 margin-bottom: 12px;
             }
+            /* Сердечко в конце линии */
+            .timeline-end-heart {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background: var(--wedding-blue);
+                transform: rotate(-45deg);
+                border-radius: 12px 12px 6px 6px;
+                z-index: 2;
+                box-shadow: 0 8px 18px rgba(91, 122, 158, 0.20);
+
+                /* позиция конца мобильной линии */
+                left: calc(21.4286% - 78px + 85px - 21px);
+                top: 548px;
+            }
+
+            .timeline-end-heart::before,
+            .timeline-end-heart::after {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background: var(--wedding-blue);
+                border-radius: 50%;
+            }
+
+            .timeline-end-heart::before {
+                top: -12px;
+                left: 0;
+            }
+
+            .timeline-end-heart::after {
+                top: 0;
+                left: 12px;
+            }
+
+            /* На ПК сердечко ставим в конец desktop-линии */
+            @media (min-width: 641px) {
+                .timeline-end-heart {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 13px 13px 7px 7px;
+
+                    /* desktop SVG: left calc(21.4286% - 105px), конец path x=145 */
+                    left: calc(21.4286% - 105px + 145px - 23px);
+                    top: 568px;
+                }
+
+                .timeline-end-heart::before,
+                .timeline-end-heart::after {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .timeline-end-heart::before {
+                    top: -20px;
+                }
+
+                .timeline-end-heart::after {
+                    left: 20px;
+                }
+            }
+            /* ===== ПРАВКА СЕРДЕЧЕК НА ТАЙМЛАЙНЕ ===== */
+
+            /* Верхнее сердечко с датой 25 — чуть ниже */
+            .heart-day {
+                transform: translateY(8px) rotate(-45deg);
+            }
+
+            /* Цифру внутри возвращаем обратно */
+            .heart-day span {
+                transform: translateY(-6px) translateX(4px) rotate(45deg);
+            }
+
+            /* Нижнее сердечко — чуть правее и наклонено на 25° против часовой */
+            .timeline-end-heart {
+                transform: translateX(12px) translateY(-4px) rotate(20deg);
+            }
+
+            /* На телефоне можно чуть мягче */
+            @media (max-width: 640px) {
+                .heart-day {
+                    transform: translateY(5px) rotate(-45deg);
+                }
+
+                .heart-day span {
+                    transform: translateY(-4px) translateX(4px) rotate(45deg);
+                }
+
+                .timeline-end-heart {
+                    transform: translateX(15px) rotate(-70deg);
+                }
+            }
+            /* ===== ТОЛЬКО СЕРДЕЧКО НА КОНЦЕ ЛИНИИ ===== */
+
+            @media (max-width: 640px) {
+    /* Кружочки у нижнего сердечка чуть меньше только на телефоне */
+                .timeline-end-heart::before,
+                .timeline-end-heart::after {
+                    width: 26px;
+                    height: 26px;
+                }
+
+                /* левый верхний кружочек */
+                .timeline-end-heart::before {
+                    top: -9px;
+                    left: 1px;
+                }
+
+                /* правый верхний кружочек */
+                .timeline-end-heart::after {
+                    top: 4px;
+                    left: 15px;
+                }
+            }
+            /* ===== КАРТИНКИ НА ТАЙМЛАЙНЕ ===== */
+
+            .timeline-icon-img {
+                position: absolute;
+                width: 84px;
+                height: auto;
+                object-fit: contain;
+                opacity: 0.92;
+                z-index: 3;
+                pointer-events: none;
+            }
+
+            /* Левые события: картинка над текстом слева */
+            .timeline-left .timeline-icon-img {
+                left: 0;
+                top: -70px;
+            }
+
+            /* Правые события: картинка над текстом справа */
+            .timeline-right .timeline-icon-img {
+                right: 0;
+                top: -74px;
+            }
+
+            /* Отступ текста вниз, чтобы не наезжал на картинку */
+            .timeline-item .timeline-card {
+                padding-top: 34px;
+            }
+
+            /* Индивидуальные размеры */
+            .first-event .timeline-icon-img {
+                width: 68px;
+                top: -64px;
+            }
+
+            .second-event .timeline-icon-img {
+                width: 78px;
+                top: -76px;
+            }
+
+            .third-event .timeline-icon-img {
+                width: 78px;
+                top: -74px;
+            }
+
+            .fourth-event .timeline-icon-img {
+                width: 74px;
+                top: -72px;
+            }
+
+            /* Телефон */
+            @media (max-width: 640px) {
+                .timeline-icon-img {
+                    width: 64px;
+                    opacity: 0.9;
+                }
+
+                .timeline-left .timeline-icon-img {
+                    left: 0;
+                    top: -48px;
+                }
+
+                .timeline-right .timeline-icon-img {
+                    right: 0;
+                    top: -50px;
+                }
+
+                .timeline-item .timeline-card {
+                    padding-top: 24px;
+                }
+
+                .first-event .timeline-icon-img {
+                    width: 78px;
+                    top: -50px;
+                }
+
+                .second-event .timeline-icon-img {
+                    width: 72px;
+                    top: -52px;
+                }
+
+                .third-event .timeline-icon-img {
+                    width: 84px;
+                    top: -60px;
+                }
+
+                .fourth-event .timeline-icon-img {
+                    width: 72px;
+                    top: 0px;
+                    left: 10px;
+                }
+            }
+            /* ===== ДРЕСС-КОД: КРУГИ С ТКАНЬЮ ===== */
+
+                .dress-colors-block {
+                    margin: 44px auto 56px;
+                    text-align: center;
+                }
+
+                .dress-colors-title {
+                    font-family: 'Cormorant Garamond', serif;
+                    color: #2c3a4d;
+                    font-size: clamp(1.65rem, 5vw, 2.25rem);
+                    line-height: 1.15;
+                    font-weight: 500;
+                    letter-spacing: 2px;
+                    margin-bottom: 26px;
+                }
+
+                .dress-color-circles {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: clamp(14px, 3vw, 26px);
+                    flex-wrap: nowrap;
+                }
+
+                .main-colors {
+                    margin-bottom: 54px;
+                }
+
+                .men-colors {
+                    margin-top: 22px;
+                }
+
+                .dress-color-circle {
+                    width: clamp(90px, 18vw, 120px);
+                    height: clamp(90px, 18vw, 120px);
+                    border-radius: 50%;
+                    object-fit: cover;
+                    display: block;
+                    box-shadow: 0 10px 22px rgba(31, 42, 61, 0.14);
+                    flex-wrap: nowrap;
+                }
+
+                .dress-color-circle.small {
+                    width: clamp(90px, 18vw, 120px);
+                    height: clamp(90px, 18vw, 120px);
+                    flex-wrap: nowrap;
+                }
+
+                .dress-colors-note {
+                    font-family: 'Cormorant Garamond', serif;
+                    color: #6f7f91;
+                    font-size: clamp(1.25rem, 4vw, 1.8rem);
+                    line-height: 1.2;
+                    font-weight: 500;
+                    letter-spacing: 1.5px;
+                    margin-top: 6px;
+                }
+
+                /* Телефон */
+                @media (max-width: 640px) {
+                    .dress-colors-block {
+                        margin: 38px auto 48px;
+                    }
+
+                    .dress-colors-title {
+                        font-size: 1.65rem;
+                        margin-bottom: 22px;
+                    }
+
+                    .dress-color-circles {
+                        gap: 14px;
+                    }
+
+                    .dress-color-circle {
+                        width: 74px;
+                        height: 74px;
+                    }
+
+                    .dress-color-circle.small {
+                        width: 74px;
+                        height: 74px;
+                    }
+
+                    .main-colors {
+                        margin-bottom: 46px;
+                    }
+
+                    .dress-colors-note {
+                        font-size: 1.25rem;
+                    }
+                }
         </style>
 </head>
 <body class="bg-[#f8f5ef] text-[#1f2a3d]">
@@ -879,8 +1173,10 @@
                         C286 540, 190 560, 145 590
                     " />
                 </svg>
+                <div class="timeline-end-heart"></div>
 
                 <div class="timeline-item timeline-left first-event">
+                    <img src="start.png" alt="" class="timeline-icon-img">
                     <div class="timeline-card">
                         <span class="timeline-time">14:00</span>
                         <span class="timeline-title">Фуршет</span>
@@ -888,6 +1184,7 @@
                 </div>
 
                 <div class="timeline-item timeline-right second-event">
+                    <img src="rings.png" alt="" class="timeline-icon-img">
                     <div class="timeline-card">
                         <span class="timeline-title">Церемония</span>
                         <span class="timeline-time">15:00</span>
@@ -895,6 +1192,7 @@
                 </div>
 
                 <div class="timeline-item timeline-left third-event">
+                    <img src="dance.png" alt="" class="timeline-icon-img">
                     <div class="timeline-card">
                         <span class="timeline-time">16:30</span>
                         <span class="timeline-title">Банкет</span>
@@ -902,8 +1200,10 @@
                 </div>
 
                 <div class="timeline-item timeline-right fourth-event">
+                    <img src="cake.png" alt="" class="timeline-icon-img">
                     <div class="timeline-card">
                         <span class="timeline-title">Торт</span>
+                        <br>
                         <span class="timeline-time">20:00</span>
                     </div>
                 </div>
@@ -947,23 +1247,38 @@
                 <div class="text-center max-w-xl mx-auto px-4">
                     <div class="dress-title">Дресс-код</div>
 
-                    <p class="dress-text">
+                    <p class="dress-text ">
                         Для нас самое главное - ваше присутствие!<br>
                         Но мы будем очень признательны, если вы поддержите цветовую гамму нашей свадьбы!
                     </p>
 
                     <!-- Палитра сердечками -->
-                    <div class="dress-palette">
-                        <img src="сердце гол.png" alt="Голубой" class="palette-heart-img">
-                        <img src="сердце-син.png" alt="Синий" class="palette-heart-img">
-                        <img src="сердце син.png" alt="Сиренево-синий" class="palette-heart-img">
-                        <img src="сердце сер.png" alt="Серый" class="palette-heart-img">
-                        <img src="Сердце зел.png" alt="Зелёный" class="palette-heart-img">
-                        <img src="Серце роз.png" alt="Розовый" class="palette-heart-img">
-                        <img src="сердце кор.png" alt="Коричневый" class="palette-heart-img">
-                    </div>
+                    <!-- Палитра дресс-кода -->
+                    <div class="dress-colors-block">
+                        <div class="dress-colors-title">
+                            Основные цвета:
+                        </div>
 
+                        <div class="dress-color-circles main-colors">
+                            <img src="гол-атл.jpg" alt="Голубой" class="dress-color-circle">
+                            <img src="зел-атл.jpg" alt="Зелёный" class="dress-color-circle">
+                            <img src="кор-атл.jpg" alt="Коричневый" class="dress-color-circle">
+                            <img src="роз-атл.jpg" alt="Розовый" class="dress-color-circle">
+                        </div>
+                        <!--
+                        <div class="dress-colors-note">
+                            * Дополнительные цвета для мужчин:<br>
+                            чёрный и белый
+                        </div>
+                        -->
+                        <div class="dress-color-circles men-colors">
+                            <img src="черный-атл.jpg" alt="Чёрный" class="dress-color-circle small">
+                            <img src="белый-атл.jpg" alt="Белый" class="dress-color-circle small">
+                        </div>
+                    </div>
+                    
                     <!-- Фото-примеры -->
+                    <!--
                     <div class="dress-examples">
                         <div class="dress-photo-card">
                             <img src="WOMEN.jpg" alt="Пример женского образа">
@@ -973,7 +1288,7 @@
                             <img src="MAN.jpg" alt="Пример мужского образа">
                         </div>
                     </div>
-
+                    -->
                     <!-- Кнопка -->
                     <a href="https://ru.pinterest.com/pin/40180621668664846/" target="_blank" class="dress-button">
                         Примеры образов
@@ -1023,7 +1338,7 @@
             
             <div id="success" class="hidden text-center mt-8 py-6 bg-[#f4f0e9] rounded-2xl">
                 <i class="fas fa-heart text-[#5b7a9e] text-3xl mb-3"></i>
-                <div class="font-semibold">Спасибо! Мы получили ваш ответ ❤️</div>
+                <div class="font-semibold">Спасибо! Мы получили ваш ответ!</div>
             </div>
         </div>
     </div>
