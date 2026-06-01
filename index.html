@@ -1409,7 +1409,6 @@
 
                     const name = document.getElementById('name').value.trim();
                     const phone = document.getElementById('phone').value.trim();
-                    const guests = document.getElementById('guests').value;
 
                     const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMwrZk-UYd_7H8256OM6JXs7qo75_A_pW1k5Gk1p6odZ-1rA/formResponse';
 
@@ -1417,7 +1416,6 @@
 
                     formData.append('entry.1522371729', name);
                     formData.append('entry.668100698', phone);
-                    formData.append('entry.1085052230', guests);
 
                     try {
                         await fetch(googleFormUrl, {
