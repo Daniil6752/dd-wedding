@@ -1085,6 +1085,7 @@
                     .dress-colors-note {
                         font-size: 1.25rem;
                     }
+                }
                 /* ===== P.S. ПРО ЦВЕТЫ ===== */
 
                 .flowers-note {
@@ -1111,6 +1112,117 @@
                     font-size: clamp(1.25rem, 4vw, 1.55rem);
                     line-height: 1.3;
                     font-weight: 500;
+                }
+                .photos-button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px 34px;
+                    border-radius: 999px;
+                    background: #5b7a9e;
+                    color: #ffffff;
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 1.35rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    box-shadow: 0 10px 22px rgba(91, 122, 158, 0.24);
+                    transition: transform 0.2s ease, background 0.2s ease;
+                }
+
+                .photos-button:hover {
+                    background: #1f2a3d;
+                    transform: translateY(-2px);
+                }
+                /* ====================== ОБРАТНЫЙ ОТСЧЁТ ====================== */
+
+                .countdown-section {
+                    text-align: center;
+                }
+
+                .countdown-inner {
+                    max-width: 620px;
+                    margin: 0 auto;
+                    padding: 34px 22px 36px;
+                    border-radius: 34px;
+                    background: rgba(255, 255, 255, 0.48);
+                    border: 1px solid rgba(91, 122, 158, 0.16);
+                    box-shadow: 0 14px 34px rgba(31, 42, 61, 0.06);
+                    backdrop-filter: blur(8px);
+                }
+
+                .countdown-date {
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: clamp(1.45rem, 4vw, 2rem);
+                    line-height: 1.1;
+                    color: #5b7a9e;
+                    letter-spacing: 2px;
+                    margin-bottom: 28px;
+                }
+
+                .countdown-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: clamp(8px, 2vw, 16px);
+                }
+
+                .countdown-item {
+                    padding: 18px 8px 16px;
+                    border-radius: 24px;
+                    background: rgba(255, 255, 255, 0.7);
+                    border: 1px solid rgba(91, 122, 158, 0.14);
+                    box-shadow: 0 8px 18px rgba(31, 42, 61, 0.05);
+                }
+
+                .countdown-number {
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: clamp(2.2rem, 7vw, 4rem);
+                    line-height: 0.9;
+                    font-weight: 500;
+                    color: #1f2a3d;
+                }
+
+                .countdown-label {
+                    margin-top: 10px;
+                    font-size: clamp(0.72rem, 2vw, 0.9rem);
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: #5b7a9e;
+                }
+
+                .countdown-note {
+                    margin-top: 20px;
+                    font-size: 0.85rem;
+                    letter-spacing: 2px;
+                    color: #8a7560;
+                }
+
+                @media (max-width: 640px) {
+                    .countdown-inner {
+                        padding: 28px 14px 30px;
+                        border-radius: 28px;
+                    }
+
+                    .countdown-grid {
+                        gap: 8px;
+                    }
+
+                    .countdown-item {
+                        padding: 14px 4px 13px;
+                        border-radius: 18px;
+                    }
+
+                    .countdown-number {
+                        font-size: 2.15rem;
+                    }
+
+                    .countdown-label {
+                        font-size: 0.64rem;
+                        letter-spacing: 1.3px;
+                    }
+
+                    .countdown-note {
+                        font-size: 0.75rem;
+                    }
                 }
         </style>
 </head>
@@ -1153,6 +1265,34 @@
 				Мы приглашаем вас разделить с нами самый важный день — день создание нашей семьи. Ваше присутствие сделает наш день по-настоящему незабываемым. Будем счастливы видеть вас!
             </div>
         </div>
+        <!-- ОБРАТНЫЙ ОТСЧЁТ -->
+        <section class="countdown-section my-20">
+            <div class="countdown-inner">
+                <div class="section-title mb-6">ДО НАШЕГО ДНЯ</div>
+
+                <div class="countdown-grid" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-days">00</div>
+                        <div class="countdown-label">дней</div>
+                    </div>
+
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-hours">00</div>
+                        <div class="countdown-label">часов</div>
+                    </div>
+
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-minutes">00</div>
+                        <div class="countdown-label">минут</div>
+                    </div>
+
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-seconds">00</div>
+                        <div class="countdown-label">секунд</div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- КАЛЕНДАРЬ + ТАЙМИНГ — СИНИЙ / БЕЛЫЙ / ПЕРЛАМУТР -->
 <section class="my-20">
     <div class="max-w-2xl mx-auto px-6">
@@ -1276,7 +1416,12 @@
 				<div class="mt-8 text-xs opacity-70">Зеленоград • Москва</div>
 			</div>
 		</section>
-
+        <!-- Кнопка с фотографиями после свадьбы -->
+        <div class="photos-link-block text-center my-16">
+            <a href="photos.html" class="photos-button">
+                Посмотреть фотографии
+            </a>
+        </div>
         <!-- ДРЕСС КОД -->
         <div class="mb-16">
             <!-- ДРЕСС КОД -->
@@ -1410,7 +1555,7 @@
                     const name = document.getElementById('name').value.trim();
                     const phone = document.getElementById('phone').value.trim();
 
-                    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMwrZk-UYd_7H8256OM6JXs7qo75_A_pW1k5Gk1p6odZ-1rA/formResponse';
+                    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMwrZk-UYd_7H8256OM6JXs7qo75_A_pW1k5Gk1p6odZ-1rA/viewform?usp=dialog';
 
                     const formData = new FormData();
 
@@ -1498,6 +1643,53 @@
         }
 
         window.addEventListener('load', initParallax);
+    
+    </script>
+    <script>
+        function initCountdown() {
+            // 25 августа 2026, 14:00 по Москве.
+            // Москва = UTC+3, поэтому фиксируем время через +03:00.
+            const weddingDate = new Date('2026-08-25T14:00:00+03:00').getTime();
+
+            const daysEl = document.getElementById('countdown-days');
+            const hoursEl = document.getElementById('countdown-hours');
+            const minutesEl = document.getElementById('countdown-minutes');
+            const secondsEl = document.getElementById('countdown-seconds');
+
+            if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+            function addZero(number) {
+                return String(number).padStart(2, '0');
+            }
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                if (distance <= 0) {
+                    daysEl.textContent = '00';
+                    hoursEl.textContent = '00';
+                    minutesEl.textContent = '00';
+                    secondsEl.textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((distance / (1000 * 60)) % 60);
+                const seconds = Math.floor((distance / 1000) % 60);
+
+                daysEl.textContent = days;
+                hoursEl.textContent = addZero(hours);
+                minutesEl.textContent = addZero(minutes);
+                secondsEl.textContent = addZero(seconds);
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        window.addEventListener('load', initCountdown);
     </script>
 </body>
 </html>
