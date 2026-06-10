@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотографии • Даниил & Диана</title>
+
+    <link rel="icon" href="channels4_profile-no-bg-preview (carve.photos).png" type="image/png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f8f5ef;
+            color: #1f2a3d;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .photos-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 20px 90px;
+        }
+
+        .photos-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.7rem, 8vw, 5rem);
+            line-height: 1;
+            font-weight: 500;
+            text-align: center;
+            color: #5b7a9e;
+            margin-bottom: 16px;
+        }
+
+        .photos-subtitle {
+            text-align: center;
+            color: #5a6d86;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 50px;
+        }
+
+        .photos-grid {
+            columns: 3 260px;
+            column-gap: 18px;
+        }
+
+        .photos-grid img {
+            width: 100%;
+            display: block;
+            margin-bottom: 18px;
+            border-radius: 18px;
+            box-shadow: 0 10px 24px rgba(31, 42, 61, 0.10);
+            break-inside: avoid;
+        }
+
+        .back-link {
+            display: inline-flex;
+            margin: 0 auto 42px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5b7a9e;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 8px 18px rgba(31, 42, 61, 0.08);
+        }
+
+        .back-wrap {
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .photos-page {
+                padding: 50px 14px 70px;
+            }
+
+            .photos-grid {
+                columns: 2 150px;
+                column-gap: 12px;
+            }
+
+            .photos-grid img {
+                margin-bottom: 12px;
+                border-radius: 14px;
+            }
+        }
+        /* ===== ФОТО ВО ВЕСЬ ЭКРАН ===== */
+
+        .gallery-photo {
+            cursor: pointer;
+        }
+
+        .photo-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 20, 30, 0.92);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+        }
+
+        .photo-lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 92vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+            font-size: 34px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 58px;
+            border: none;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+            font-size: 46px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .lightbox-prev {
+            left: 22px;
+        }
+
+        .lightbox-next {
+            right: 22px;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-arrow:hover {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        /* Телефон */
+        @media (max-width: 640px) {
+            .photo-lightbox {
+                padding: 12px;
+            }
+
+            .lightbox-img {
+                max-width: 96vw;
+                max-height: 84vh;
+                border-radius: 12px;
+            }
+
+            .lightbox-close {
+                top: 14px;
+                right: 14px;
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+
+            .lightbox-arrow {
+                width: 42px;
+                height: 52px;
+                font-size: 40px;
+                background: rgba(255, 255, 255, 0.12);
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+        .lightbox-download {
+            position: absolute;
+            top: 20px;
+            left: 22px;
+            padding: 11px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 0.95rem;
+            line-height: 1;
+            backdrop-filter: blur(8px);
+            transition: background 0.2s ease, transform 0.2s ease;
+
+            border: none;
+            cursor: pointer;
+        }
+
+        .lightbox-download:hover {
+            background: rgba(255, 255, 255, 0.26);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .lightbox-download {
+                top: 16px;
+                left: 14px;
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== ПЕРЕКЛЮЧАТЕЛЬ ГАЛЕРЕЙ ===== */
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto 34px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tab {
+            border: none;
+            cursor: pointer;
+            padding: 13px 26px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5b7a9e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 8px 18px rgba(31, 42, 61, 0.08);
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .gallery-tab.active {
+            background: #5b7a9e;
+            color: #ffffff;
+        }
+
+        .gallery-tab:hover {
+            transform: translateY(-1px);
+        }
+
+        .gallery-grid {
+            display: none;
+        }
+
+        .gallery-grid.active {
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            .gallery-tabs {
+                gap: 8px;
+                margin-bottom: 28px;
+            }
+
+            .gallery-tab {
+                padding: 11px 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="photos-page">
+        <div class="back-wrap">
+            <a href="index.html" class="back-link">← Вернуться к приглашению</a>
+        </div>
+
+        <h1 class="photos-title">Фотографии</h1>
+
+        <p class="photos-subtitle">
+            Спасибо, что были рядом с нами в этот день 🤍<br>
+            Здесь мы собрали самые тёплые моменты нашей свадьбы.
+        </p>
+
+        <div class="gallery-tabs">
+            <button class="gallery-tab active" type="button" data-gallery="photographer">
+                Фотограф
+            </button>
+
+            <button class="gallery-tab" type="button" data-gallery="phones">
+                Фото гостей
+            </button>
+        </div>
+
+        <div class="photos-grid gallery-grid active" id="gallery-photographer">
+            <img src="photos/photographer/MEjUtPPopYY.jpg" alt="Фото с фотографа" class="gallery-photo" loading="lazy">
+            <img src="photos/photographer/photo_2024-09-18_11-08-50.jpg" alt="Фото с фотографа" class="gallery-photo" loading="lazy">
+            <img src="photos/photographer/photo_2025-02-20_11-06-33.jpg" alt="Фото с фотографа" class="gallery-photo" loading="lazy">
+            <img src="photos/photographer/photo_2025-09-15_11-32-00.jpg" alt="Фото с фотографа" class="gallery-photo" loading="lazy">
+            <img src="photos/photographer/Без имени1111.png" alt="Фото с фотографа" class="gallery-photo" loading="lazy">
+        </div>
+
+        <div class="photos-grid gallery-grid" id="gallery-phones">
+            <img src="photos/phones/9e4c10a421fb42e8f76fd1867fea4ecf.jpg" alt="Фото гостей" class="gallery-photo" loading="lazy">
+            <img src="photos/phones/photo_2025-09-17_11-49-09.jpg" alt="Фото гостей" class="gallery-photo" loading="lazy">
+            <img src="photos/phones/photo_2026-04-15_14-29-09.jpg" alt="Фото гостей" class="gallery-photo" loading="lazy">
+            <img src="photos/phones/sJVVc9oX4t4.jpg" alt="Фото гостей" class="gallery-photo" loading="lazy">
+            <img src="photos/phones/wfUUJsTml1g.jpg" alt="Фото гостей" class="gallery-photo" loading="lazy">
+            <img src="photos/phones/ывпываыв.png" alt="Фото гостей" class="gallery-photo" loading="lazy">
+        </div>
+
+    </main>
+    <div class="photo-lightbox" id="photoLightbox">
+        <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+
+        <button class="lightbox-download" id="lightboxDownload" type="button">
+            Скачать фото
+        </button>
+
+        <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Предыдущее фото">‹</button>
+
+        <img src="" alt="Фото со свадьбы" class="lightbox-img" id="lightboxImg">
+
+        <button class="lightbox-arrow lightbox-next" type="button" aria-label="Следующее фото">›</button>
+    </div>
+    <script>
+        let galleryPhotos = Array.from(document.querySelectorAll('.gallery-grid.active .gallery-photo'));
+
+        const lightbox = document.getElementById('photoLightbox');
+        const prevBtn = document.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const downloadBtn = document.getElementById('lightboxDownload');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        const tabs = document.querySelectorAll('.gallery-tab');
+        const galleries = document.querySelectorAll('.gallery-grid');
+
+        let currentPhotoIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function refreshCurrentGallery() {
+            galleryPhotos = Array.from(document.querySelectorAll('.gallery-grid.active .gallery-photo'));
+
+            galleryPhotos.forEach((photo, index) => {
+                photo.onclick = () => openLightbox(index);
+            });
+        }
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                const galleryName = tab.dataset.gallery;
+
+                tabs.forEach((item) => item.classList.remove('active'));
+                tab.classList.add('active');
+
+                galleries.forEach((gallery) => {
+                    gallery.classList.remove('active');
+                });
+
+                document.getElementById(`gallery-${galleryName}`).classList.add('active');
+
+                closeLightbox();
+                refreshCurrentGallery();
+            });
+        });
+
+        function openLightbox(index) {
+            if (!galleryPhotos.length) return;
+
+            currentPhotoIndex = index;
+            updateLightboxPhoto();
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function showNextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+            updateLightboxPhoto();
+        }
+
+        function showPrevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+            updateLightboxPhoto();
+        }
+
+        function updateLightboxPhoto() {
+            const currentSrc = galleryPhotos[currentPhotoIndex].getAttribute('src');
+
+            lightboxImg.src = currentSrc;
+        }
+
+        function getFileNameFromSrc(src) {
+            return src.split('/').pop().split('?')[0] || 'wedding-photo.jpg';
+        }
+        async function downloadCurrentPhoto() {
+            const currentSrc = galleryPhotos[currentPhotoIndex].getAttribute('src');
+            const fileName = getFileNameFromSrc(currentSrc);
+
+            try {
+                const response = await fetch(currentSrc);
+                const blob = await response.blob();
+
+                const blobUrl = URL.createObjectURL(blob);
+
+                const tempLink = document.createElement('a');
+                tempLink.href = blobUrl;
+                tempLink.download = fileName;
+
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                tempLink.remove();
+
+                URL.revokeObjectURL(blobUrl);
+            } catch (error) {
+                window.open(currentSrc, '_blank');
+            }
+        }
+
+        refreshCurrentGallery();
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', showNextPhoto);
+        prevBtn.addEventListener('click', showPrevPhoto);
+        downloadBtn.addEventListener('click', downloadCurrentPhoto);
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') showNextPhoto();
+            if (e.key === 'ArrowLeft') showPrevPhoto();
+        });
+
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) < 50) return;
+
+            if (swipeDistance < 0) {
+                showNextPhoto();
+            } else {
+                showPrevPhoto();
+            }
+        }
+    </script>
+</body>
+</html>

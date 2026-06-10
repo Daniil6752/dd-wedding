@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Даниил &amp; Диана • 25.08.2026</title>
+    <!-- Красивое отображение ссылки в мессенджерах -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Даниил & Диана • Приглашение на свадьбу">
+    <meta property="og:description" content="Мы приглашаем вас разделить с нами этот особенный день — 25 августа 2026 года.">
+    <meta property="og:image" content="https://diana-daniil.ru/FON.png">
+    <meta property="og:url" content="https://diana-daniil.ru">
+
+    <!-- Для Twitter / Telegram тоже полезно -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Даниил & Диана • Приглашение на свадьбу">
+    <meta name="twitter:description" content="Мы приглашаем вас разделить с нами этот особенный день — 25 августа 2026 года.">
+    <meta name="twitter:image" content="https://diana-daniil.ru/FON.png">
+    <link rel="icon" href="channels4_profile-no-bg-preview (carve.photos).png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<style>            
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&family=Marck+Script&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+            
+            body {
+                font-family: 'Inter', system-ui, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* ====================== ФОН ГЕРОЯ ====================== */
+            .hero-bg {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-image: url('FON.png');
+                background-size: cover;
+                background-position: center;
+                filter: blur(5px) brightness(0.95);
+                z-index: -1;
+            }
+
+            @media (max-width: 768px) {
+                .hero-bg {
+                    background-image: url('FON-mob.png');
+                    filter: blur(7px) brightness(0.92);
+                }
+            }
+
+            .hero {
+                position: relative;
+                min-height: 100vh;
+                z-index: 1;
+            }
+            /* ====================== ГЛАВНЫЙ ЭКРАН ПОСЛЕ СВАДЬБЫ ====================== */
+
+            .hero-thanks {
+                padding: 40px 0;
+            }
+
+            .hero-thanks-content {
+                max-width: 760px;
+                margin: 0 auto;
+            }
+
+            .hero-thanks-date {
+                font-size: 0.95rem;
+                letter-spacing: 5px;
+                color: #8a7560;
+                margin-bottom: 40px;
+            }
+
+            .hero-thanks-logo-wrap {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 18px;
+            }
+
+            .hero-thanks-logo {
+                width: 160px;
+                height: auto;
+                display: block;
+            }
+
+            .hero-thanks-names {
+                font-size: clamp(1.7rem, 4vw, 2.6rem);
+                letter-spacing: 7px;
+                font-weight: 400;
+                color: #1f2a3d;
+                margin-bottom: 34px;
+            }
+
+            .hero-thanks-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(2.4rem, 7vw, 4.6rem);
+                line-height: 1.04;
+                font-weight: 500;
+                color: #2c3a4d;
+                margin: 0 0 24px;
+            }
+
+            .hero-thanks-text {
+                max-width: 640px;
+                margin: 0 auto 38px;
+                font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+                line-height: 1.55;
+                color: #4a596d;
+            }
+
+            .hero-thanks-buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .hero-thanks-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 240px;
+                padding: 15px 34px;
+                border-radius: 999px;
+                text-decoration: none;
+                font-size: 1.2rem;
+                font-weight: 500;
+                transition: all 0.2s ease;
+                box-shadow: 0 10px 22px rgba(31, 42, 61, 0.10);
+            }
+
+            .hero-thanks-btn.primary {
+                background: #1f2a3d;
+                color: #ffffff;
+            }
+
+            .hero-thanks-btn.primary:hover {
+                background: #5b7a9e;
+                transform: translateY(-2px);
+            }
+
+            .hero-thanks-btn.secondary {
+                background: rgba(255,255,255,0.72);
+                color: #1f2a3d;
+                border: 1px solid rgba(31, 42, 61, 0.10);
+            }
+
+            .hero-thanks-btn.secondary:hover {
+                background: #ffffff;
+                transform: translateY(-2px);
+            }
+
+            @media (max-width: 640px) {
+                .hero-thanks {
+                    padding: 24px 0;
+                }
+
+                .hero-thanks-date {
+                    margin-bottom: 28px;
+                    font-size: 0.85rem;
+                    letter-spacing: 4px;
+                }
+
+                .hero-thanks-logo {
+                    width: 125px;
+                }
+
+                .hero-thanks-names {
+                    font-size: 1.2rem;
+                    letter-spacing: 5px;
+                    margin-bottom: 24px;
+                }
+
+                .hero-thanks-title {
+                    font-size: 2.35rem;
+                    margin-bottom: 18px;
+                }
+                
+                .hero-thanks-text {
+                    font-size: 1.18rem;
+                    line-height: 1.5;
+                    margin-bottom: 30px;
+                }
+
+                .hero-thanks-btn {
+                    min-width: 220px;
+                    padding: 14px 26px;
+                    font-size: 1.08rem;
+                }
+            }
+        </style>
+</head>
+<body class="bg-[#f8f5ef] text-[#1f2a3d]">
+    
+    <!-- ГЕРОЙ (оставил без изменений) -->
+    <header class="hero hero-thanks min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0 hero-bg"></div>
+        <div class="absolute inset-0 bg-white/60 z-10"></div>
+
+        <div class="relative z-20 text-center px-6 hero-thanks-content">
+            <div class="hero-thanks-date">25.08.2026</div>
+
+            <div class="hero-thanks-logo-wrap">
+                <img src="channels4_profile-no-bg-preview (carve.photos).png" alt="Daniil & Diana" class="w-[260px] md:w-[340px] h-auto">
+            </div>
+
+            <div class="hero-thanks-names">DANIIL &amp; DIANA</div>
+
+            <h1 class="hero-thanks-title">Спасибо, что были с нами</h1>
+
+            <p class="hero-thanks-text">
+                Спасибо, что разделили с нами этот день.<br>
+                Благодаря вам он стал ещё теплее и счастливее.
+            </p>
+
+            <div class="hero-thanks-buttons">
+                <a href="photos.html" class="hero-thanks-btn primary">
+                    Посмотреть фотографии
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+            function initTailwind() {
+                // Tailwind уже подключён
+            }
+            
+            function initForm() {
+                const form = document.getElementById('rsvp-form');
+                const success = document.getElementById('success');
+
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const btn = form.querySelector('button');
+                    const originalText = btn.innerHTML;
+
+                    btn.disabled = true;
+                    btn.innerHTML = 'Отправляем...';
+
+                    const name = document.getElementById('name').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+
+                    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMwrZk-UYd_7H8256OM6JXs7qo75_A_pW1k5Gk1p6odZ-1rA/viewform?usp=dialog';
+
+                    const formData = new FormData();
+
+                    formData.append('entry.1522371729', name);
+                    formData.append('entry.668100698', phone);
+
+                    try {
+                        await fetch(googleFormUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            body: formData
+                        });
+
+                        form.style.display = 'none';
+                        success.classList.remove('hidden');
+                        createConfetti();
+
+                    } catch (error) {
+                        btn.disabled = false;
+                        btn.innerHTML = originalText;
+                        alert('Не получилось отправить форму. Попробуйте ещё раз.');
+                    }
+                });
+            }
+        function createConfetti() {
+            const colors = ['#5b7a9e', '#d9c9b8', '#f5f0e6'];
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: fixed;
+                        left: ${Math.random() * 100}vw;
+                        top: -20px;
+                        width: 8px;
+                        height: 8px;
+                        background: ${colors[Math.floor(Math.random()*colors.length)]};
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 9999;
+                        opacity: ${Math.random() * 0.7 + 0.3};
+                    `;
+                    document.body.appendChild(particle);
+                    
+                    particle.animate([
+                        { transform: 'translateY(0) rotate(0deg)' },
+                        { transform: `translateY(${window.innerHeight + 120}px) rotate(${Math.random()*720 - 360}deg)` }
+                    ], {
+                        duration: Math.random() * 2600 + 2200,
+                        easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
+                    }).onfinish = () => particle.remove();
+                }, i * 2);
+            }
+        }
+        
+        function init() {
+            initTailwind();
+            initForm();
+        }
+        
+        window.onload = init;
+    </script>
+    <script>
+        // Параллакс только для героя (на локации оставляем обычный fixed внутри секции)
+        function initParallax() {
+            const heroBg = document.querySelector('.hero-bg');
+
+            let ticking = false;
+
+            function updatePosition() {
+                const scrollY = window.scrollY;
+                const speed = 0.7;
+
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrollY * speed}px)`;
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updatePosition);
+                    ticking = true;
+                }
+            });
+        }
+
+        window.addEventListener('load', initParallax);
+    
+    </script>
+</body>
+</html>
