@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Фото со свадьбы — Диана & Даниил</title>
+  <meta name="description" content="Загрузите фото и видео со свадьбы Дианы и Даниила" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <p class="eyebrow">25.08.2026</p>
+      <h1>Диана & Даниил</h1>
+      <p class="lead">Поделитесь фото и видео с нашей свадьбы 🤍</p>
+
+      <form id="uploadForm" class="form">
+        <label class="field">
+          <span>Ваше имя <em>необязательно</em></span>
+          <input id="guestName" type="text" inputmode="text" autocomplete="name" placeholder="Например, Анна" maxlength="40" />
+        </label>
+
+        <div class="actions">
+          <label class="button primary" for="cameraInput">Сделать фото</label>
+          <label class="button secondary" for="fileInput">Выбрать из галереи</label>
+        </div>
+
+        <input id="cameraInput" class="hidden" type="file" accept="image/*" capture="environment" />
+        <input id="fileInput" class="hidden" type="file" accept="image/*,video/*" multiple />
+
+        <div id="fileList" class="file-list" aria-live="polite"></div>
+
+        <button id="uploadButton" class="button upload" type="submit" disabled>Загрузить</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <p class="note">Спасибо, что сохраняете этот день вместе с нами.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./upload.js"></script>
+</body>
+</html>
