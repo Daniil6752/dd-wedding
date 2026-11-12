@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#e69bc4" name="theme-color"/>
+<meta content="Маленькое романтическое приглашение. Только для тебя ♡" name="description"/>
+<title>Любовь — приглашение на свидание ♡</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Marck+Script&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root { --pink:#e69bc4; --blush:#ffe9f1; --soft:#f8d2e2; --red:#c4002b; --berry:#a4355f; --ink:#793451; --white:#fffafc; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:0}
+    body{margin:0;min-width:320px;background:var(--pink);color:var(--ink);font-family:'Manrope',Arial,sans-serif;overflow-x:hidden}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset:5px}
+    .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px 16px 30px;background:var(--pink);isolation:isolate;overflow:hidden}
+    .hero::before,.hero::after{content:'♡';position:absolute;color:#f9c9e0;font-family:Georgia,serif;font-size:clamp(100px,22vw,370px);line-height:1;opacity:.35;z-index:-1;transform:rotate(-22deg)}
+    .hero::before{left:-7vw;top:3vh}.hero::after{right:-8vw;bottom:0;transform:rotate(23deg)}
+    .poster{height:min(77svh,710px);max-width:100%;width:auto;aspect-ratio:9/16;display:block;flex-shrink:1;mix-blend-mode:normal;pointer-events:none;user-select:none}
+    .answer-invite{margin-top:-24px;border:1px solid rgba(255,255,255,.85);background:rgba(255,251,253,.93);color:var(--red);border-radius:100px;padding:16px 28px;min-height:55px;box-shadow:0 8px 24px rgba(112,21,65,.13);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:'Manrope',sans-serif;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:14px;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+    .answer-invite:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(112,21,65,.19);background:#fff}
+    .answer-invite:active{transform:translateY(1px)}
+    .answer-invite .arrow{font-size:20px;font-weight:400;line-height:1;animation:arrowBounce 2.5s ease-in-out infinite}
+    @keyframes arrowBounce{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
+    .question{position:relative;min-height:100svh;padding:110px 20px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 39%,#fff7fb 0%,#ffe7f1 54%,#f3b9d1 100%);isolation:isolate;overflow:hidden}
+    .question::after{content:'';pointer-events:none;position:absolute;inset:0;z-index:-1;background-image:radial-gradient(#e8a2c2 0.8px,transparent 0.8px);background-size:17px 17px;opacity:.25}
+    .lace{position:absolute;left:0;right:0;height:53px;z-index:4;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='54' viewBox='0 0 80 54'%3E%3Cpath d='M0 0H80V21C70 21 68 46 40 46S10 21 0 21Z' fill='%23fff9fc'/%3E%3Cpath d='M0 16C10 16 14 38 40 38S70 16 80 16' fill='none' stroke='%23e9a2c2' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='32' r='4' fill='none' stroke='%23e9a2c2' stroke-width='1.2'/%3E%3Ccircle cx='17' cy='23' r='2' fill='%23e9a2c2'/%3E%3Ccircle cx='63' cy='23' r='2' fill='%23e9a2c2'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:top left;background-size:80px 54px}
+    .lace--top{top:0}.lace--bottom{bottom:0;transform:rotate(180deg)}
+    .flower-art{position:absolute;width:clamp(180px,24vw,340px);height:auto;opacity:.78;pointer-events:none;filter:drop-shadow(0px 9px 10px rgba(139,51,96,.10));z-index:0}
+    .flower-art--left{bottom:35px;left:max(-70px,calc(50% - 630px));transform:rotate(-17deg)}
+    .flower-art--right{top:50px;right:max(-85px,calc(50% - 630px));transform:scaleX(-1) rotate(-13deg)}
+    .question-card{position:relative;z-index:2;width:min(100%,680px);text-align:center;padding:clamp(45px,7vw,80px) clamp(22px,7vw,70px);border:1px solid rgba(178,80,127,.24);background:rgba(255,251,253,.76);border-radius:220px 220px 26px 26px/86px 86px 26px 26px;box-shadow:0 24px 80px rgba(158,57,104,.12),inset 0 0 0 9px rgba(255,255,255,.27);backdrop-filter:blur(9px)}
+    .question-card::before{content:'';position:absolute;inset:12px;border:1px solid rgba(175,77,124,.18);border-radius:inherit;pointer-events:none}
+    .eyebrow{text-transform:uppercase;letter-spacing:.32em;font-size:10px;font-weight:700;color:#b0658a;margin:2px 0 28px}
+    .mini-heart{font-family:Georgia,serif;font-size:36px;line-height:1;color:#c35b86;margin-bottom:9px;display:block}
+    .question h2{margin:0;color:var(--berry);font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:.98;letter-spacing:-.055em;font-size:clamp(57px,8vw,96px)}
+    .question h2 em{font-style:normal;font-family:'Marck Script','Comic Sans MS',cursive;color:#ce658e;font-size:.87em;letter-spacing:0;white-space:nowrap}
+    .question-desc{max-width:340px;margin:25px auto 30px;font-size:13px;line-height:1.9;color:#9b6681}
+    .choices{display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;min-height:65px}
+    .choice{border:1px solid #b66186;border-radius:100px;padding:16px 22px;min-width:144px;min-height:54px;font-family:'Manrope',Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:transform .22s,background .22s,color .22s,box-shadow .22s}
+    .choice--yes{background:#ba476f;color:white;box-shadow:0 9px 18px rgba(176,65,106,.18)}
+    .choice--yes:hover{transform:translateY(-3px);background:#9f345d;box-shadow:0 15px 26px rgba(176,65,106,.26)}
+    .choice--no{background:rgba(255,255,255,.78);color:#a95377}
+    .choice--no:hover{background:#fff;transform:translateY(-2px)}
+    .choice--no.is-wrong{background:#ed3957!important;color:#fff!important;border-color:#d8183d!important;box-shadow:0 0 0 6px rgba(226,40,69,.16),0 10px 23px rgba(199,39,67,.23);animation:shakeWrong .55s cubic-bezier(.36,.07,.19,.97) both}
+    @keyframes shakeWrong{0%,100%{transform:translateX(0)}12%,36%,60%,84%{transform:translateX(-9px) rotate(-2deg)}24%,48%,72%{transform:translateX(9px) rotate(2deg)}}
+    .wrong-note{min-height:24px;margin:19px 0 -25px;font-family:'Marck Script','Comic Sans MS',cursive;color:#be3c67;font-size:19px;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s}
+    .wrong-note.is-visible{opacity:1;transform:translateY(0)}
+    .question-tail{position:absolute;bottom:64px;left:0;right:0;text-align:center;color:#ba7394;letter-spacing:.24em;font-size:10px;text-transform:uppercase}
+    .details-page{position:fixed;inset:0;z-index:30;overflow-y:auto;background:radial-gradient(ellipse at 50% 20%,#fff8fc 0%,#ffe9f2 50%,#edaacb 100%);visibility:hidden;opacity:0;transform:translateY(38px) scale(.99);pointer-events:none;transition:opacity .55s,transform .55s,visibility .55s}
+    .details-page.is-visible{visibility:visible;opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+    .details-page::before{content:'';position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#e8a2c2 1px,transparent 1px);background-size:19px 19px;opacity:.18}
+    .details-content{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:92px 20px 70px;overflow:hidden}
+    .details-content .flower-art--left{left:max(-85px,calc(50% - 650px))}.details-content .flower-art--right{right:max(-100px,calc(50% - 650px))}
+    .back-link{position:fixed;z-index:35;left:clamp(18px,4vw,48px);top:clamp(16px,3vh,35px);font:600 12px 'Manrope',Arial,sans-serif;border:1px solid rgba(173,73,115,.26);background:#fff7fbcc;color:#994564;border-radius:40px;padding:13px 18px;cursor:pointer;transition:background .2s}
+    .back-link:hover{background:#fff}
+    .details-card{position:relative;z-index:2;width:min(100%,585px);padding:clamp(36px,6vw,65px) clamp(24px,6vw,60px);text-align:center;background:#fffafae8;border:1px solid #e9b4c9;outline:1px solid #edb9ce;outline-offset:9px;box-shadow:0 22px 65px rgba(145,52,99,.15);border-radius:8px 8px 90px 90px;animation:none}
+    .details-page.is-visible .details-card{animation:floatUp .8s .13s backwards}
+    @keyframes floatUp{from{transform:translateY(26px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .details-card .little{font-family:'Marck Script',cursive;font-size:25px;color:#bc6588;line-height:1.35}
+    .details-card h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(51px,7vw,76px);font-weight:500;line-height:.93;letter-spacing:-.05em;color:var(--red);margin:20px 0 16px}
+    .details-card .heart-divider{font-size:22px;color:#d878a1;margin:21px 0;display:block}
+    .details-card .intro{font-size:13px;line-height:1.9;color:#96627b;margin:0 auto 28px;max-width:360px}
+    .details-card .ornate-line{margin:26px auto;width:min(100%,330px);height:1px;background:linear-gradient(to right,transparent,#d39ab6,transparent)}
+    .detail-label{text-transform:uppercase;font-size:10px;color:#b47a98;letter-spacing:.24em;font-weight:700}
+    .restaurant-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,7vw,58px);font-weight:600;letter-spacing:.05em;color:#a84167;text-transform:uppercase;margin:7px 0 16px}
+    .time-line{font-size:14px;color:#99506f;margin-bottom:26px;line-height:1.8}.time-line strong{color:#a63860}
+    .map-button{display:inline-flex;align-items:center;justify-content:center;gap:11px;text-decoration:none;color:white;background:#b84570;border-radius:50px;padding:17px 25px;font-size:12px;font-weight:700;letter-spacing:.025em;box-shadow:0 10px 25px rgba(168,52,103,.2);transition:transform .2s,background .2s}
+    .map-button:hover{background:#982f58;transform:translateY(-2px)}.map-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .final-note{margin:22px 0 0;font-family:'Marck Script',cursive;font-size:23px;color:#b45c85}
+    .float-heart{position:absolute;z-index:1;color:#cc729b;font-size:clamp(20px,3vw,36px);pointer-events:none;animation:heartFloat 5s ease-in-out infinite}
+    .float-heart--one{top:14%;left:15%}.float-heart--two{top:26%;right:14%;animation-delay:1.2s}.float-heart--three{bottom:14%;right:19%;animation-delay:2.3s}
+    @keyframes heartFloat{0%,100%{transform:translateY(0) rotate(-8deg);opacity:.45}50%{transform:translateY(-13px) rotate(7deg);opacity:.8}}
+    @media(max-width:600px){
+       .hero{padding:4px 13px 24px;gap:12px}.poster{height:min(78svh,720px);max-width:100%}.answer-invite{padding:14px 20px;min-height:51px;letter-spacing:.07em;font-size:11px}
+       .question{padding:94px 18px}.question-card{border-radius:160px 160px 23px 23px/63px 63px 23px 23px;padding:50px 16px 51px}.question h2{font-size:clamp(52px,13vw,74px)}
+       .question-desc{font-size:12px;padding:0 8px}.eyebrow{font-size:9px;letter-spacing:.22em}.flower-art{width:180px;opacity:.42}.flower-art--left{bottom:15px;left:-85px}.flower-art--right{top:53px;right:-95px}
+       .choice{min-width:124px;padding:14px 18px}.choices{gap:10px}.question-tail{bottom:52px}.details-content{padding:98px 24px 55px}.details-card{outline-offset:5px;padding:50px 22px}.float-heart--one{left:7%}.float-heart--two{right:5%}
+    }
+    @media(max-height:670px){.hero{padding-top:5px;padding-bottom:12px}.poster{height:73svh}.question{padding-top:82px;padding-bottom:75px}.question-card{padding-top:37px;padding-bottom:37px}.question-desc{margin-top:13px;margin-bottom:19px}.question-tail{display:none}.details-content{padding-top:95px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+  
+    .details-card .restaurant-name{font-size:clamp(34px,6.5vw,49px);line-height:1.06;letter-spacing:.015em;text-transform:none;overflow-wrap:normal;margin-bottom:15px}
+    .exit-note{margin:-12px auto 25px;max-width:370px;color:#99506f;font-size:13px;line-height:1.7}
+    @media(max-width:430px){.details-card .restaurant-name{font-size:clamp(31px,9vw,39px)}}
+</style>
+</head>
+<body>
+<main id="invitation">
+<section aria-label="Приглашение на романтический ужин" class="hero">
+<svg class="poster" role="img" aria-label="Любовь. Поужинаем?" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 800">
+<rect width="450" height="800" fill="#e69bc4"/>
+<g fill="#c6002b" opacity="1" transform="translate(84,177) scale(0.1320475,-0.1678225) translate(0.000,7.000)">
+<path d="M85 -7Q42 -7 21.0 12.5Q0 32 0 64Q0 90 12.0 105.0Q24 120 44 124Q48 111 63.0 94.0Q78 77 109 77Q124 77 147.5 86.5Q171 96 196.0 129.0Q221 162 240 232Q252 275 261.0 332.5Q270 390 276.5 449.0Q283 508 286.5 556.5Q290 605 290 631Q290 666 279.0 681.0Q268 696 250.0 700.0Q232 704 210 704H152V714H674V704H651Q569 704 569 632V82Q569 10 651 10H664V0H373V10H386Q468 10 468 82V704H305Q302 601 292.0 500.0Q282 399 267.5 310.0Q253 221 233 155Q206 64 172.0 28.5Q138 -7 85 -7Z" transform="translate(0.000,0)"/>
+</g>
+<g fill="#c6002b" opacity="1" transform="translate(190,181) scale(0.1451271,-0.1700680) translate(-39.000,10.000)">
+<path d="M684 -10Q539 -10 461.5 87.5Q384 185 384 368H235V82Q235 10 317 10H330V0H39V10H52Q134 10 134 82V636Q134 704 52 704H39V714H330V704H317Q235 704 235 632V378H384Q387 483 421.0 561.0Q455 639 521.0 682.0Q587 725 685 725Q781 725 847.5 679.5Q914 634 948.5 551.5Q983 469 983 358Q983 247 948.5 164.5Q914 82 847.0 36.0Q780 -10 684 -10ZM684 0Q752 0 793.0 36.0Q834 72 853.0 150.5Q872 229 872 358Q872 487 853.5 565.5Q835 644 794.0 679.5Q753 715 685 715Q617 715 575.0 679.5Q533 644 514.0 565.5Q495 487 495 358Q495 229 514.0 150.5Q533 72 574.5 36.0Q616 0 684 0Z" transform="translate(0.000,0)"/>
+</g>
+<g fill="#c6002b" opacity="1" transform="translate(198,291) scale(0.1574953,-0.1960784) translate(-38.000,0.000)">
+<path d="M38 0V10H51Q133 10 133 82V636Q133 704 51 704H38V714H519L525 539H515L513 572Q509 647 478.0 675.5Q447 704 371 704H234V395H297Q394 395 452.5 370.0Q511 345 538.0 300.5Q565 256 565 198Q565 110 505.0 55.0Q445 0 319 0ZM302 10Q387 10 422.0 50.5Q457 91 457 193Q457 268 439.5 309.5Q422 351 385.0 368.0Q348 385 287 385H234V10Z" transform="translate(0.000,0)"/>
+</g>
+<g fill="#c6002b" opacity="1" transform="translate(270,264) scale(0.1589825,-0.1687075) translate(-56.000,10.000)">
+<path d="M371 -10Q265 -10 195.0 36.0Q125 82 90.5 165.0Q56 248 56 359Q56 470 90.5 552.0Q125 634 195.5 679.5Q266 725 372 725Q473 725 542.5 679.5Q612 634 648.5 551.5Q685 469 685 358Q685 247 648.5 164.5Q612 82 542.0 36.0Q472 -10 371 -10ZM371 0Q478 0 526.0 85.0Q574 170 574 358Q574 546 526.0 630.5Q478 715 372 715Q265 715 216.0 630.5Q167 546 167 358Q167 170 215.5 85.0Q264 0 371 0Z" transform="translate(0.000,0)"/>
+</g>
+<g fill="#c6002b" opacity="1" transform="translate(130,413) scale(0.1729730,-0.1666667) translate(-38.000,0.000)">
+<path d="M38 0V10H51Q133 10 133 82V636Q133 704 51 704H38V714H306Q563 714 563 544Q563 393 371 378V376Q490 371 541.5 321.5Q593 272 593 192Q593 0 336 0ZM303 379Q386 379 421.0 415.0Q456 451 456 535Q456 627 420.5 665.5Q385 704 301 704H234V379ZM331 10Q415 10 450.5 52.0Q486 94 486 192Q486 287 451.0 328.0Q416 369 333 369H234V10Z" transform="translate(0.000,0)"/>
+</g>
+<g fill="#c6002b" opacity="1" transform="translate(223,413) scale(0.1878558,-0.1666667) translate(-38.000,0.000)">
+<path d="M38 0V10H51Q133 10 133 82V632Q133 704 51 704H38V714H349V704H316Q234 704 234 636V395H297Q394 395 452.5 370.0Q511 345 538.0 300.5Q565 256 565 198Q565 110 505.0 55.0Q445 0 319 0ZM302 10Q387 10 422.0 50.5Q457 91 457 193Q457 268 439.5 309.5Q422 351 385.0 368.0Q348 385 287 385H234V10Z" transform="translate(0.000,0)"/>
+</g>
+<path d="M201 174 H260" stroke="#c6002b" stroke-width="0.8" fill="none" opacity="0.8"/>
+<g fill="#fff6fa" opacity="0.88" transform="translate(136,547) scale(0.0247083,-0.0230978) translate(-100.000,11.000)">
+<path d="M100 0V714H617V0H560V662H158V0Z" transform="translate(0.000,0)"/>
+<path d="M705 358Q705 249 669.0 166.0Q633 83 561.5 36.5Q490 -10 384 -10Q276 -10 204.5 36.5Q133 83 97.5 166.5Q62 250 62 359Q62 468 98.5 550.0Q135 632 207.5 678.5Q280 725 387 725Q490 725 561.0 680.5Q632 636 668.5 554.0Q705 472 705 358ZM123 359Q123 264 151.0 192.5Q179 121 237.0 81.5Q295 42 384 42Q474 42 531.5 81.0Q589 120 616.5 191.5Q644 263 644 358Q644 507 579.5 590.0Q515 673 387 673Q298 673 239.0 633.5Q180 594 151.5 523.5Q123 453 123 359Z" transform="translate(788.000,0)"/>
+<path d="M348 171Q322 115 294.5 74.5Q267 34 228.0 12.0Q189 -10 131 -10Q103 -10 81.0 -5.5Q59 -1 42 5V63Q60 54 81.5 49.5Q103 45 128 45Q189 45 223.0 79.0Q257 113 287 181L9 714H73L290 295Q297 279 303.5 264.5Q310 250 317 234H320Q331 264 344 292L532 714H594Z" transform="translate(1626.000,0)"/>
+<path d="M306 366 18 714H85L369 368V714H425V368L710 714H777L488 367L789 0H720L425 362V0H369V362L74 0H6Z" transform="translate(2291.000,0)"/>
+<path d="M101 714H156V229Q156 191 154.5 151.5Q153 112 152 87H155L570 714H631V0H576V478Q576 521 577.5 562.5Q579 604 580 629H577L162 0H101Z" transform="translate(3156.000,0)"/>
+<path d="M623 0H565V348H158V0H100V714H158V400H565V714H623Z" transform="translate(3957.000,0)"/>
+<path d="M547 0 452 246H156L60 0H0L281 717H334L608 0ZM339 556Q333 570 323.0 600.0Q313 630 306 653Q298 626 289.0 600.0Q280 574 274 555L175 299H434Z" transform="translate(4751.000,0)"/>
+<path d="M492 0H100V714H492V662H158V401H473V349H158V52H492Z" transform="translate(5429.000,0)"/>
+<path d="M410 0 154 653H151Q152 625 153.5 589.5Q155 554 155 515V0H100V714H188L434 89H437L686 714H772V0H714V521Q714 554 715.5 588.5Q717 623 718 652H715L457 0Z" transform="translate(6052.000,0)"/>
+<path d="M142 207Q142 251 149.0 280.5Q156 310 174.5 334.5Q193 359 227 385Q264 414 288.0 437.0Q312 460 324.0 486.5Q336 513 336 551Q336 612 298.0 642.5Q260 673 196 673Q152 673 116.5 662.5Q81 652 46 635L25 683Q67 703 107.5 713.5Q148 724 199 724Q288 724 339.5 679.5Q391 635 391 552Q391 504 375.5 470.5Q360 437 332.0 410.0Q304 383 266 354Q236 331 219.5 310.0Q203 289 196.5 264.0Q190 239 190 202V188H142ZM125 39Q125 88 169 88Q213 88 213 39Q213 -11 169 -11Q125 -11 125 39Z" transform="translate(6994.000,0)"/>
+</g>
+<path d="M228 779 C222 766 203 747 204 729 C205 710 220 706 229 739 C236 709 259 699 261 717 C263 736 242 756 234 767" transform="translate(66 177) scale(0.70)" stroke="#fffafc" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
+<button class="answer-invite" id="openQuestion" type="button">Ответить на приглашение <span aria-hidden="true" class="arrow">↓</span></button>
+</section>
+<section aria-labelledby="question-title" class="question" id="question">
+<div aria-hidden="true" class="lace lace--top"></div><div aria-hidden="true" class="lace lace--bottom"></div>
+<svg aria-hidden="true" class="flower-art flower-art--left" viewbox="0 0 270 340" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#ad5b7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+<path d="M60 339C69 279 92 227 100 163M91 295C124 242 153 202 176 154M73 317C96 278 135 264 158 243M99 171C80 137 60 129 51 111"></path>
+<path d="M83 243Q37 205 23 229Q37 264 83 243Z" fill="#9eb896" fill-opacity=".65"></path>
+<path d="M102 229Q143 188 157 210Q145 239 102 229Z" fill="#a9c59d" fill-opacity=".75"></path>
+<path d="M79 279Q29 262 27 295Q49 315 79 279Z" fill="#9eb896" fill-opacity=".65"></path>
+<path d="M123 266Q163 241 171 270Q151 290 123 266Z" fill="#adca9f" fill-opacity=".65"></path>
+<path d="M131 220Q119 176 142 174Q161 194 131 220Z" fill="#9db895" fill-opacity=".7"></path>
+<path d="M166 172Q195 186 207 164Q196 139 166 172Z" fill="#a8c49d" fill-opacity=".7"></path>
+<path d="M89 296L41 290M85 248L45 233M127 265L158 267M115 225L149 211" stroke="#6a956d" stroke-width="1"></path>
+</g>
+<g stroke="#a34b74" stroke-linejoin="round" stroke-width="1.7">
+<path d="M61 79C45 57 64 38 79 41C84 11 122 15 129 43C161 28 174 59 159 82C180 101 157 133 135 125C115 154 74 138 69 119C43 117 43 91 61 79Z" fill="#f5a7c4" fill-opacity=".93"></path>
+<path d="M66 85C71 58 91 49 108 57C126 49 146 61 141 83C155 99 132 118 119 111C103 129 80 117 82 99C67 109 57 93 66 85Z" fill="#f9c4d6"></path>
+<path d="M87 78C100 61 125 68 126 83C136 95 115 108 105 103C92 113 80 97 87 78Z" fill="#ed8eb0"></path>
+<path d="M99 81C111 72 122 83 115 92C109 99 99 94 99 89C100 82 110 82 113 87" fill="none"></path>
+<path d="M86 59C82 43 96 33 106 40M138 65C155 66 160 82 152 91M68 97C70 112 81 120 89 122" fill="none"></path>
+<path d="M153 126C150 103 171 97 181 114C204 104 217 132 204 148C210 168 190 181 176 168C153 181 137 153 153 143C145 139 147 130 153 126Z" fill="#f3aec6"></path>
+<path d="M165 127C164 113 187 117 185 130C201 136 190 151 178 147C173 157 158 146 165 136" fill="#ffd4e2"></path>
+<path d="M174 132C182 122 190 135 181 140C175 145 170 135 176 131" fill="none"></path>
+<path d="M141 221C135 205 154 198 165 207C186 195 203 219 189 230C195 247 174 260 163 249C142 259 129 236 141 221Z" fill="#e99aba"></path>
+<path d="M153 220C159 210 176 218 172 227C182 238 162 244 157 234C147 237 143 228 153 220Z" fill="#ffd0dd"></path>
+<path d="M159 224C165 218 172 229 162 232" fill="none"></path>
+<path d="M37 96C22 80 27 63 44 60C51 65 50 82 37 96Z" fill="#f0a0b9"></path>
+<path d="M42 92C50 88 54 78 50 68" fill="none"></path>
+</g>
+<g fill="#d1749c"><circle cx="24" cy="164" r="3"></circle><circle cx="218" cy="194" r="3"></circle><circle cx="214" cy="90" r="2.8"></circle><circle cx="45" cy="193" r="2"></circle></g>
+</svg>
+<svg aria-hidden="true" class="flower-art flower-art--right" viewbox="0 0 270 340" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#ad5b7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+<path d="M60 339C69 279 92 227 100 163M91 295C124 242 153 202 176 154M73 317C96 278 135 264 158 243M99 171C80 137 60 129 51 111"></path>
+<path d="M83 243Q37 205 23 229Q37 264 83 243Z" fill="#9eb896" fill-opacity=".65"></path><path d="M102 229Q143 188 157 210Q145 239 102 229Z" fill="#a9c59d" fill-opacity=".75"></path><path d="M79 279Q29 262 27 295Q49 315 79 279Z" fill="#9eb896" fill-opacity=".65"></path><path d="M123 266Q163 241 171 270Q151 290 123 266Z" fill="#adca9f" fill-opacity=".65"></path><path d="M131 220Q119 176 142 174Q161 194 131 220Z" fill="#9db895" fill-opacity=".7"></path><path d="M166 172Q195 186 207 164Q196 139 166 172Z" fill="#a8c49d" fill-opacity=".7"></path>
+</g>
+<g stroke="#a34b74" stroke-linejoin="round" stroke-width="1.7">
+<path d="M61 79C45 57 64 38 79 41C84 11 122 15 129 43C161 28 174 59 159 82C180 101 157 133 135 125C115 154 74 138 69 119C43 117 43 91 61 79Z" fill="#f5a7c4"></path><path d="M66 85C71 58 91 49 108 57C126 49 146 61 141 83C155 99 132 118 119 111C103 129 80 117 82 99C67 109 57 93 66 85Z" fill="#f9c4d6"></path><path d="M87 78C100 61 125 68 126 83C136 95 115 108 105 103C92 113 80 97 87 78Z" fill="#ed8eb0"></path><path d="M99 81C111 72 122 83 115 92C109 99 99 94 99 89C100 82 110 82 113 87" fill="none"></path>
+<path d="M153 126C150 103 171 97 181 114C204 104 217 132 204 148C210 168 190 181 176 168C153 181 137 153 153 143C145 139 147 130 153 126Z" fill="#f3aec6"></path><path d="M165 127C164 113 187 117 185 130C201 136 190 151 178 147C173 157 158 146 165 136" fill="#ffd4e2"></path><path d="M174 132C182 122 190 135 181 140C175 145 170 135 176 131" fill="none"></path>
+<path d="M141 221C135 205 154 198 165 207C186 195 203 219 189 230C195 247 174 260 163 249C142 259 129 236 141 221Z" fill="#e99aba"></path><path d="M153 220C159 210 176 218 172 227C182 238 162 244 157 234C147 237 143 228 153 220Z" fill="#ffd0dd"></path><path d="M159 224C165 218 172 229 162 232" fill="none"></path>
+</g>
+<g fill="#d1749c"><circle cx="24" cy="164" r="3"></circle><circle cx="218" cy="194" r="3"></circle><circle cx="214" cy="90" r="2.8"></circle><circle cx="45" cy="193" r="2"></circle></g>
+</svg>
+<div class="question-card">
+<span aria-hidden="true" class="mini-heart">♡</span>
+<p class="eyebrow">Приглашение только для тебя, любимая</p>
+<h2 id="question-title">Согласна пойти<br/>на <em>свидание?</em></h2>
+<p class="question-desc">Будет вкусный ужин, разговоры обо всём на свете и один очень счастливый человек рядом с тобой.</p>
+<div class="choices">
+<button class="choice choice--yes" id="yesButton" type="button">Да, с удовольствием ♡</button>
+<button class="choice choice--no" id="noButton" type="button">Нет</button>
+</div>
+<p aria-live="polite" class="wrong-note" id="wrongNote" role="status">Ой, кажется, это неправильный ответ ♡</p>
+</div>
+<div class="question-tail">with love, to Diana ♡</div>
+</section>
+</main>
+<section aria-hidden="true" aria-labelledby="details-title" class="details-page" id="date-details">
+<button class="back-link" id="backButton" type="button">← К приглашению</button>
+<div class="details-content">
+<div aria-hidden="true" class="lace lace--top"></div><div aria-hidden="true" class="lace lace--bottom"></div>
+<svg aria-hidden="true" class="flower-art flower-art--left" viewbox="0 0 270 340" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#ad5b7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+<path d="M60 339C69 279 92 227 100 163M91 295C124 242 153 202 176 154M73 317C96 278 135 264 158 243M99 171C80 137 60 129 51 111"></path>
+<path d="M83 243Q37 205 23 229Q37 264 83 243Z" fill="#9eb896" fill-opacity=".65"></path>
+<path d="M102 229Q143 188 157 210Q145 239 102 229Z" fill="#a9c59d" fill-opacity=".75"></path>
+<path d="M79 279Q29 262 27 295Q49 315 79 279Z" fill="#9eb896" fill-opacity=".65"></path>
+<path d="M123 266Q163 241 171 270Q151 290 123 266Z" fill="#adca9f" fill-opacity=".65"></path>
+<path d="M131 220Q119 176 142 174Q161 194 131 220Z" fill="#9db895" fill-opacity=".7"></path>
+<path d="M166 172Q195 186 207 164Q196 139 166 172Z" fill="#a8c49d" fill-opacity=".7"></path>
+<path d="M89 296L41 290M85 248L45 233M127 265L158 267M115 225L149 211" stroke="#6a956d" stroke-width="1"></path>
+</g>
+<g stroke="#a34b74" stroke-linejoin="round" stroke-width="1.7">
+<path d="M61 79C45 57 64 38 79 41C84 11 122 15 129 43C161 28 174 59 159 82C180 101 157 133 135 125C115 154 74 138 69 119C43 117 43 91 61 79Z" fill="#f5a7c4" fill-opacity=".93"></path>
+<path d="M66 85C71 58 91 49 108 57C126 49 146 61 141 83C155 99 132 118 119 111C103 129 80 117 82 99C67 109 57 93 66 85Z" fill="#f9c4d6"></path>
+<path d="M87 78C100 61 125 68 126 83C136 95 115 108 105 103C92 113 80 97 87 78Z" fill="#ed8eb0"></path>
+<path d="M99 81C111 72 122 83 115 92C109 99 99 94 99 89C100 82 110 82 113 87" fill="none"></path>
+<path d="M86 59C82 43 96 33 106 40M138 65C155 66 160 82 152 91M68 97C70 112 81 120 89 122" fill="none"></path>
+<path d="M153 126C150 103 171 97 181 114C204 104 217 132 204 148C210 168 190 181 176 168C153 181 137 153 153 143C145 139 147 130 153 126Z" fill="#f3aec6"></path>
+<path d="M165 127C164 113 187 117 185 130C201 136 190 151 178 147C173 157 158 146 165 136" fill="#ffd4e2"></path>
+<path d="M174 132C182 122 190 135 181 140C175 145 170 135 176 131" fill="none"></path>
+<path d="M141 221C135 205 154 198 165 207C186 195 203 219 189 230C195 247 174 260 163 249C142 259 129 236 141 221Z" fill="#e99aba"></path>
+<path d="M153 220C159 210 176 218 172 227C182 238 162 244 157 234C147 237 143 228 153 220Z" fill="#ffd0dd"></path>
+<path d="M159 224C165 218 172 229 162 232" fill="none"></path>
+<path d="M37 96C22 80 27 63 44 60C51 65 50 82 37 96Z" fill="#f0a0b9"></path>
+<path d="M42 92C50 88 54 78 50 68" fill="none"></path>
+</g>
+<g fill="#d1749c"><circle cx="24" cy="164" r="3"></circle><circle cx="218" cy="194" r="3"></circle><circle cx="214" cy="90" r="2.8"></circle><circle cx="45" cy="193" r="2"></circle></g>
+</svg>
+<svg aria-hidden="true" class="flower-art flower-art--right" viewbox="0 0 270 340" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#ad5b7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+<path d="M60 339C69 279 92 227 100 163M91 295C124 242 153 202 176 154M73 317C96 278 135 264 158 243M99 171C80 137 60 129 51 111"></path>
+<path d="M83 243Q37 205 23 229Q37 264 83 243Z" fill="#9eb896" fill-opacity=".65"></path><path d="M102 229Q143 188 157 210Q145 239 102 229Z" fill="#a9c59d" fill-opacity=".75"></path><path d="M79 279Q29 262 27 295Q49 315 79 279Z" fill="#9eb896" fill-opacity=".65"></path><path d="M123 266Q163 241 171 270Q151 290 123 266Z" fill="#adca9f" fill-opacity=".65"></path><path d="M131 220Q119 176 142 174Q161 194 131 220Z" fill="#9db895" fill-opacity=".7"></path><path d="M166 172Q195 186 207 164Q196 139 166 172Z" fill="#a8c49d" fill-opacity=".7"></path>
+</g>
+<g stroke="#a34b74" stroke-linejoin="round" stroke-width="1.7">
+<path d="M61 79C45 57 64 38 79 41C84 11 122 15 129 43C161 28 174 59 159 82C180 101 157 133 135 125C115 154 74 138 69 119C43 117 43 91 61 79Z" fill="#f5a7c4"></path><path d="M66 85C71 58 91 49 108 57C126 49 146 61 141 83C155 99 132 118 119 111C103 129 80 117 82 99C67 109 57 93 66 85Z" fill="#f9c4d6"></path><path d="M87 78C100 61 125 68 126 83C136 95 115 108 105 103C92 113 80 97 87 78Z" fill="#ed8eb0"></path><path d="M99 81C111 72 122 83 115 92C109 99 99 94 99 89C100 82 110 82 113 87" fill="none"></path>
+<path d="M153 126C150 103 171 97 181 114C204 104 217 132 204 148C210 168 190 181 176 168C153 181 137 153 153 143C145 139 147 130 153 126Z" fill="#f3aec6"></path><path d="M165 127C164 113 187 117 185 130C201 136 190 151 178 147C173 157 158 146 165 136" fill="#ffd4e2"></path><path d="M174 132C182 122 190 135 181 140C175 145 170 135 176 131" fill="none"></path>
+<path d="M141 221C135 205 154 198 165 207C186 195 203 219 189 230C195 247 174 260 163 249C142 259 129 236 141 221Z" fill="#e99aba"></path><path d="M153 220C159 210 176 218 172 227C182 238 162 244 157 234C147 237 143 228 153 220Z" fill="#ffd0dd"></path><path d="M159 224C165 218 172 229 162 232" fill="none"></path>
+</g>
+<g fill="#d1749c"><circle cx="24" cy="164" r="3"></circle><circle cx="218" cy="194" r="3"></circle><circle cx="214" cy="90" r="2.8"></circle><circle cx="45" cy="193" r="2"></circle></g>
+</svg>
+<span aria-hidden="true" class="float-heart float-heart--one">♡</span>
+<span aria-hidden="true" class="float-heart float-heart--two">♡</span>
+<span aria-hidden="true" class="float-heart float-heart--three">♡</span>
+<div class="details-card">
+<div class="little">Это официально...</div>
+<h2 id="details-title">У нас<br/>свидание!</h2>
+<span aria-hidden="true" class="heart-divider">♡ — ♡ — ♡</span>
+<p class="intro">Уже представляю этот вечер. Осталось только встретиться и сделать его незабываемым.</p>
+<div aria-hidden="true" class="ornate-line"></div>
+<div class="detail-label">Наше место встречи</div>
+<div aria-label="Центральный детский мир" class="restaurant-name">Центральный детский мир</div>
+<div class="time-line">Сегодня в <strong>17:30</strong></div><p class="exit-note">Метро «Лубянка», выход 11 · встречаемся у входа</p>
+<a aria-label="Открыть карту: Центральный детский мир, метро Лубянка, выход 11" class="map-button" href="https://yandex.ru/maps/?text=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%BD%D0%B0%20%D0%9B%D1%83%D0%B1%D1%8F%D0%BD%D0%BA%D0%B5%2C%20%D0%BC%D0%B5%D1%82%D1%80%D0%BE%20%D0%9B%D1%83%D0%B1%D1%8F%D0%BD%D0%BA%D0%B0%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%2011" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.6"></circle></svg>
+        Посмотреть на карте <span aria-hidden="true">↗</span>
+</a>
+<p class="final-note">До встречи, любовь моя ♡</p>
+</div>
+</div>
+</section>
+<script>
+  (() => {
+    'use strict';
+    const openQuestion = document.getElementById('openQuestion');
+    const question = document.getElementById('question');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const wrongNote = document.getElementById('wrongNote');
+    const details = document.getElementById('date-details');
+    const backButton = document.getElementById('backButton');
+    let wrongTimeout;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    openQuestion.addEventListener('click', () => {
+      question.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'start' });
+    });
+    noButton.addEventListener('click', () => {
+      clearTimeout(wrongTimeout);
+      noButton.classList.remove('is-wrong');
+      void noButton.offsetWidth;
+      noButton.classList.add('is-wrong');
+      wrongNote.classList.add('is-visible');
+      wrongTimeout = setTimeout(() => noButton.classList.remove('is-wrong'), 720);
+    });
+    function setDetailsVisible(show, changeHistory = false) {
+      details.classList.toggle('is-visible', show);
+      details.setAttribute('aria-hidden', String(!show));
+      document.getElementById('invitation').inert = show;
+      document.body.style.overflow = show ? 'hidden' : '';
+      if (changeHistory) {
+        if (show) history.pushState({page:'details'}, '', '#date-details');
+        else history.pushState({page:'invitation'}, '', '#question');
+      }
+      if (show) {
+        details.scrollTop = 0;
+        setTimeout(() => backButton.focus({preventScroll:true}), 60);
+      } else {
+        setTimeout(() => yesButton.focus({preventScroll:true}), 50);
+      }
+    }
+    yesButton.addEventListener('click', () => setDetailsVisible(true, true));
+    backButton.addEventListener('click', () => setDetailsVisible(false, true));
+    window.addEventListener('popstate', () => setDetailsVisible(location.hash === '#date-details', false));
+    if (location.hash === '#date-details') setDetailsVisible(true, false);
+  })();
+</script>
+</body>
+</html>
